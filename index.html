@@ -401,41 +401,235 @@
 </ul>
 
 <h2>Update 54</h2>
-<p>Release Date:</p>
+<p>Release Date: April 27th, 2022</p>
 <h3>Main Features:</h3>
 <ul>
 <li>-</li>
 </ul>
 <h3>Balance:</h3>
 <ul>
-<li>-</li>
+<li>When you Release from a dungeon while dead, you will be brought back to life with 20 Hit Points instead of 1 HP.</li>
+<li>Trap the Soul has gotten an overhaul:<ul>
+<li>There is no more Hit Dice limit on this spell, and there is only one variant.</li>
+<li>This spell now gives you the regular gem for all CRs.</li>
+<li>Cannith Crafting recipes just use that one regular gem.</li>
+<li>Changed the cooldown to 10 seconds (Sorcerer stays at 8 seconds).</li></ul></li>
+<li>Shiradi caster mantles changes:<ul>
+<li>All proc dice have been raised to 7d77.</li>
+<li>Spellcast scaling has been raised to 100%.</li>
+<li>Proc rate has been raised to 7%.</li>
+<li>The elements offered have changed: now you may select from Light, Force, Poison, or Sonic.</li></ul></li>
+<li>The following Destiny Mantles now deal 1d6+6 damage per caster level when they proc:<ul>
+<li>Magus of the Eclipse</li>
+<li>Fatesinger</li>
+<li>Primal Avatar</li>
+<li>Exalted Angel</li></ul></li>
 </ul>
 <h3>Bugfixes:</h3>
 <ul>
-<li>-</li>
+<li>Eldritch Knight's elemental damage dice should now more reliably add up.</li>
+<li>Eldritch Knight's Force's Point no longer spams your combat log.</li>
+<li>Fixed a typo in the Quicken Metamagic enhancement for Exalted Angel.</li>
+<li>A variety of active Exalted Angel abilities no longer work underwater.</li>
+<li>1st core of Exalted Angel now provides magical training correctly.</li>
+<li>Fixed typos with Green and Shadow Dragon Breath in Draconic Incarnation.</li>
+<li>Feywild Attunement in Shiradi Champion now grants its listed Spellpower.</li>
+<li>Core 2 Shiradi now provides the doubled and listed dodge and fort bypass.</li>
+<li>Fatesinger's Grandeur now functions.</li>
+<li>Air Savant's Feather Fall no longer drops on death.</li>
+<li>Shadar-kai chain can now be used while quelled.</li>
+<li>Magus of the Eclipse: Lunar Insight now functions.</li>
+<li>All Magus actives may now be used while moving.</li>
+<li>Clarified Vistani core 4's tooltip to make sure it was more accurate.</li>
+<li>Regeneration no longer has visual effects and therefore no longer has visual effect bugs.</li>
+<li>Greensteel Regeneration no longer drops on death.</li>
+<li>Raging Blows in Barbarian now correctly grants its +1[W].</li>
+<li>Palemaster Undead Shrouds should now persist through logout better.</li>
+<li>Holy Mantle from Divine Crusader should now persist through logout better.</li>
+<li>Abyssal Shroud from Warlock should persist through logout better.</li>
+<li>Shiradi's Pin now grants its listed 3[W] instead of 1[W].</li>
+<li>Shiradi's Pin no longer has a DC.</li>
+<li>Fixed a typo in the Draconic Destiny Mantle.</li>
+<li>Fixed typo in Shiradi epic moment.</li>
+<li>Killer Instinct now has removal floaty text to make it clearer when it wears off.</li>
+<li>Storm's Eye now has no removal floaty text since that makes it visually obstructive.</li>
+<li>Scion of the Astral Plane no longer drops on death.</li>
+<li>Monster casted Flame Strike will damage players again.</li>
+<li>Epic Delera's Rune Arm now drops as intended.</li>
+<li>Legendary Saltmarsh Rune Arm now drops as intended.</li>
+<li>Creeping Doom and Divine Wrath no longer go through Spell Absorption.</li>
+<li>The Defiler of the Just Raid Questgiver no longer tries to teleport you into the dungeon no matter what you tell her.</li>
+<li>Epic Spell Power categories no longer require minimum level 26.</li>
+<li>Fixed typo in the Filigree Divinity: Seeker (Rare) (Melee attack power -> Melee Power).</li>
+<li>Fixed a typo in a generic Sharn text line for town NPCs.</li>
+<li>Fixed Slay:Blank bugs in the Splinterskull chain.</li>
+<li>Displacement no longer takes Enlarge since its a self-only spell.</li>
+<li>Artificers should find it much easier to mount up now while charging their Rune Arm.</li>
+<li>Prevented scenarios where a Reaper Ring enchantment could be erroneously non-applied to a non-ring item.</li>
+<li>Fixed a typo in barbarian's Focus Wide buff.</li>
+<li>Crazy Strikes now grants its Weapon[W] bonus correctly.</li>
+<li>Fatesinger Core 2 and 3 now grant its DCs.</li>
+<li>Shillelagh now correctly gives Bludgeon DR bypass instead of Magic.</li>
+<li style="color:Blue;">Fixed a typo with Shiradi Champion's Stay Loud.</li>
+<li style="color:Blue;">Eldritch Knight properly grants Ghost Touch again.</li>
+<li style="color:Blue;">Bestow Curse now functions again.</li>
+<li style="color:Blue;">Shillelagh now properly does magical damage again.</li>
+<li style="color:Blue;">Players no longer charge their Runearms or fire them while mounted.</li>
+<li style="color:Blue;">A variety of Runearm and mount related animation issues have been resolved.</li>
+<li style="color:Blue;">When you get an LFM join request, the player's joining level is now printed in the chat text instead of just in the LFM join requests window and the alert.</li>
 </ul>
 <h3>Engineering:</h3>
 <ul>
-<li>-</li>
+<li>Hovering over your Epic Destiny points now displays a context-sensitive tooltip that reports your points breakdown.</li>
+<li>The LFM UI Difficulty display element has been adjusted to be more vertically centered.</li>
+<li>Hovering over a weapon now factors in the Improved Critical feat.</li>
+<li>The character sheet has gotten a minor visual upgrade in its layout.<ul>
+<li>It now shows you your total level instead of your total Action Points.</li>
+<li>Several text and bounding box inconsistencies have been fixed involving bad element placement.</li>
+<li>The Saves label is now Saving Throws and is the proper font.</li>
+<li>The BAB box is now lined up correctly, and the BAB amount is now centered.</li></ul></li>
+<li>A variety of UI improvements relating to how we display Character Level have been made:<ul>
+<li>Your character sheet no longer shows the Epic Class in its class breakdown.</li>
+<li>When someone requests to join your LFM, you will now see their total level in parenthesis and then their class breakdown, which will no longer include their Epic class levels. Text Literal: "$NAME$ ($LVL$)($CLASSES$) would like to join your party."</li>
+<li>The Character Selection screen will no longer display your Epic class levels.</li>
+<li>Examining a player now shows their Total level and then their class breakdown, and the class breakdown no longer displays their epic level.</li>
+<li>The Guild, Who, and LFM displays for players no longer shows their Epic levels as part of their class breakdown.</li></ul></li>
+<li>The Who, Guild, and LFM UI elements for player entries now have appropriate Skin Mapping hookups for UI Skinning.</li>
+<li>There is a new Gameplay option: Force Heals to Self when Targeting Undead (default: false). While true, when you have an enemy Undead targeted, any positive healing actions will be cast on you instead of the undead.</li>
 </ul>
 
 <h2>Update 53</h2>
-<p>Release Date:</p>
+<p>Release Date: February 24th, 2022</p>
 <h3>Main Features:</h3>
 <ul>
-<li>-</li>
+<li>Hunter and Hunter Quest Pack Itemization</li>
 </ul>
 <h3>Balance:</h3>
 <ul>
-<li>-</li>
+<li>You may now Barter for Sands of Menechtarun wilderness loot from Masei Mkembe's Barter Shop in Zawabi's Refuge if you have Antique Bronze Tokens to spare.</li>
+<li>Dripping with Magma now triggers once every 1 second instead of .25.</li>
+<li>Elditch Knight's visuals now change color depending on which Spellsword Toggle you have turned on.</li>
+<li style="color:Blue;">Spell Penetration Augments have been adjusted upwards to match the scaling of named and random loot.</li>
 </ul>
 <h3>Bugfixes:</h3>
 <ul>
-<li>-</li>
+<li>The Reincarnation UI no longer tells you that Iconic Heroes must be level 28.</li>
+<li>Epic Hearts of Wood no longer tell you that you need Karma to Epic Reincarnate.</li>
+<li>Lionheart and Reincarnate now properly take the Eschew Materials metamagic feat.</li>
+<li>Fire Seeds, Ice Flowers, and Burst of Glacial Wrath now take appropriate metamagic feats.</li>
+<li>Blur is back to being a 20% bonus.</li>
+<li>Meteor Swarm has had its screen shake and flash effect reduced.</li>
+<li>Tiefling Infernal Resistance no longer drops on Death.</li>
+<li>Tenser's Transformation no longer removes Eldritch Knight's Shield Proficiency upon removal.</li>
+<li>Bowdlin (Collectible Trader) now correctly tells you that he distributes Red Augments and not colorless.</li>
+<li>Quality Spell Focus Mastery now changes from +1 to +2 at a slightly earlier level so more gear has the +2 version of the affix.</li>
+<li>Spell Penetration and Attack Augments now have corrected descriptions.</li>
+<li>The hardcore season five vendor was using old logic that assumed the player took their favor rewards in order sometimes preventing a player from claiming the "death follows you reward" if they hasn't already claimed Death Watches you reward . This has now been corrected.</li>
+<li>Certain legacy Healing Amplification effect tooltips have been modernized.</li>
+<li>Commendations from the various Eveningstar factions (such as War Wizard) are now Bound to Account instead of Bound to Character.</li>
+<li>Alchemical Elemental Attunement effects now each correctly work on both Melee and Ranged attacks.</li>
+<li>The Reaper Shard Crafting recipes for Goggles and Glove now function correctly.</li>
+<li>The epic feat Doubleshot has its correct tooltip.</li>
+<li>Mounting a mount will no longer turn off the Rune Arm Use feat, and will instead suppress your Rune Arm charge until you are dismounted.</li>
+<li>Bloody Footprints now display properly for the following Races:</li>
+<li>Warforged Male/Female Inquisitives</li>
+<li>Shifter Male (all styles)</li>
+<li>Tiefling Male (1 handed/1 handed shield style)</li>
+<li>Drow (both genders) (Inquisitive Style)</li>
+<li>First Blood no longer kills you if you cast a spell on yourself.</li>
+<li>Feydark Illusionist's Illusory Augmentation now correctly grants its bonuses if you have obtained Augment Summoning from a temporary source, such as gear or an augment.</li>
+<li>Hope for Success from the Favored Soul's Beacon of Hope tree now applies more reliably.</li>
+<li>Sacred Touch in Warpriest and Warsoul now mentions the typing of the buff.</li>
+<li>Eldritch Knight's Proficiencies now apply more reliably.</li>
+<li>When the feat Elusive Target triggers it now displays a visual over your character's head to know it has applied.</li>
+<li>A variety of effects that provide a full Heal now work on Undead players.</li>
+<li>Absolute Zero now applies its frozen crowd control to Fire enemies that are immune to Death, instead of letting the Death effect bounce off and therefore having no effect.</li>
+<li>The Druidic Oath system now only alerts you about breaking your Druidic Oath if you become oathbreaking from a state where you are not oathbreaking, preventing over-spam of its alert.</li>
+<li>Druidic Stoneshape now works with Dire Bear.</li>
+<li>Strength Domain now only bases your Reflex Saving Throws on Strength if it is higher than your Dexterity.</li>
+<li style="color:Blue;">The Cheap Shot Longbow no longer has a Haggle augment in a legacy augment slot.</li>
+<li style="color:Blue;">Astral Shard turn-ins for 40 and 45 Astral Shards no longer has a misspelling.</li>
+<li style="color:Blue;">Abyssal Shroud in Warlock now has visual effects.</li>
+<li style="color:Blue;">A variety of Alchemist class tree toggles now remember their states better.</li>
+<li style="color:Blue;">Cannith Crafting now allows you to craft the Impact suffix.</li>
+<li style="color:Blue;">Corrected an issue that caused a bard's Spellsong Vigor to drop sometimes when teleporting.</li>
+<li style="color:Blue;">Feydark Illusionist's Displacement now stacks correctly.</li>
+<li style="color:Blue;">Shifter's True Hunter no longer claims to give petrification immunity, and properly gives Freedom of Movement.</li>
+<li style="color:Blue;">Shifter's Shifts and Fiendish Arpeggio may now be used while moving.</li>
+<li style="color:Blue;">Second Claw in Razorclaw Shifter no longer mentions Offhand Doublestrike.</li>
+<li style="color:Blue;">Walker's Guidance in Horizon Walker now gives its listed bonuses to saving throws versus traps.</li>
+<li style="color:Blue;">Wood Elf's bonuses to Falchion damage now correctly grants +2 damage at ranks 1 and 3.</li>
+<li style="color:Blue;">Lightning Strikes the Mountain no longer costs double its spell points.</li>
+<li style="color:Blue;">Enduring Beast in Nature's Protector now grants its listed Strength bonus.</li>
+<li style="color:Blue;">Bard Warchanter's Spinning Ice no longer has an extra "your" in its tooltip.</li>
+<li style="color:Blue;">Embed Component no longer mentions Tree Form since that ability no longer exists.</li>
+<li style="color:Blue;">Storm's Eye in Frenzied Berserker now increases flat damage by 1 per stack instead of just melee damage.</li>
+<li style="color:Blue;">Great White Wolf in Nature's Warrior now provides its listed Spell Power.</li>
+<li style="color:Blue;">The Shadowdancer Epic Strike improvements are now de-coupled from one another, allowing you to mix and match Tier 3 and Tier 4 benefits.</li>
+<li style="color:Blue;">Weathering the Elements now grants its correct 25 protection per caster level.</li>
+<li style="color:Blue;">Divine Crusader's Divine Smite now heals more reliably.</li>
+<li style="color:Blue;">Draconic Reinvigoration is now better at regenerating all Action Boosts.</li>
+<li style="color:Blue;">Primal Avatar's Thunder Snow slow effect no longer works on bosses.</li>
+<li style="color:Blue;">Corrected some typos in the Destiny Mantle for Fury of the Wild.</li>
+<li style="color:Blue;">Lunar Imbuement now correctly grants Negative Spell Power for Gloomlance instead of Cold Spell Power.</li>
+<li style="color:Blue;">The following Epic Destiny Tier 5 abilities now cost 1 Action Point: Blessed Blades, Bring Down Wrath, Imposing Force, Just a Taste, Ruin Intensified, and Spread Your Wings.</li>
+<li style="color:Blue;">Shadowdancer's Dimension Door no longer needs to be cast while targeting yourself.</li>
+<li style="color:Blue;">Shiradi's Prism, Stay Good, and Stay Frosty now have a 5% chance of proccing their damage on spellcast.</li>
+<li style="color:Blue;">Shiradi's Prism, Stay Good, and Stay Frosty's damage effects now scale with 50% Spell Power for casters.</li>
+<li style="color:Blue;">Shiradi Champion's Pin now lasts its listed 12 seconds.</li>
+<li style="color:Blue;">Unyielding Sentinel's Resurrection SLA no longer shares a cooldown with the spell.</li>
+<li style="color:Blue;">Legendary Fury of Blows now tells you what it does correctly. This is a Guardbreaking effect, not a Knockdown.</li>
+<li style="color:Blue;">Knight's Transformation now looks correct when viewing it from a different character (aka - on another client.)</li>
+<li style="color:Blue;">The Veil the Elements feat that hides your elemental wild shape visuals now works on other players' game clients.</li>
+<li style="color:Blue;">Items that grant a Reaper bonus now stack with each other.</li>
+<li style="color:Blue;">Reaper bonuses on rings now stack correctly.</li>
+<li style="color:Blue;">Removed erroneous text related to caster level from several legacy Slowburst effects.</li>
+<li style="color:Blue;">Healing Amplification Augments now have their correct typing in their tooltips.</li>
+<li style="color:Blue;">Greensteel regeneration should no longer fall off when transitioning between zones.</li>
+<li style="color:Blue;">Steelstar's coffees now work while moving.</li>
+<li style="color:Blue;">Bucklers with erroneous ASF now have their ASF set to zero.</li>
+<li style="color:Blue;">The Maximum Dexterity Bonus of the Hide of the Hunter has been set to appropriate values.</li>
+<li style="color:Blue;">Stalwart and Sacred Defense stances should now persist throughout log out and log in.</li>
+<li style="color:Blue;">New copies of the Heroic-level Accessories from the Chronoscope now have Augment slots.</li>
+<li style="color:Blue;">The Greater Dragonmark of Passage can now take you to the Gatekeepers' Grove and the Lower Necropolis option now actually takes you to where it says it does.</li>
+<li style="color:Blue;">The Legendary Wolf Whistle's summoned monster now respects summoned monster limits.</li>
+<li style="color:Blue;">The Heroic Otto's Stone of Experience no longer mentions the old Epic Destiny system. This issue still persists for the Epic and Improved Epic Stones of Experience.</li>
+<li style="color:Blue;">Several robes now have their correct non-invisible icons.</li>
+<li style="color:Blue;">Grym's Bone Bracers no longer drop with Trinket mythic bonuses.</li>
+<li style="color:Blue;">Legendary Stone Prison no longer works in reverse.</li>
+<li style="color:Blue;">Legendary Jidz-Tet'ka no longer loses buffs upon death.</li>
+<li style="color:Blue;">The Menechtarun Scavenger set bonus now provides its listed Physical Resistance Rating.</li>
+<li style="color:Blue;">Tomes of Fate now have accurate tooltips to reflect what a Fate Point represent.</li>
+<li style="color:Blue;">Demon Scale Armor (Heroic) is now part of its set.</li>
+<li style="color:Blue;">New copies of the Legendary Deathwarden and Skulled Ring now have a higher Exceptional Spell Power.</li>
+<li style="color:Blue;">Reaper Crafting recipes for Gloves and Goggles have been adjusted to allow for the 5 reaper fragment turn-in.</li>
+<li style="color:Blue;">Several Champion Damage Over Time effects now have internal cooldowns to prevent spam deaths, and several are now set to remove all stacks instead of one at a time.</li>
+<li style="color:Blue;">Several quests in The Sinister Secret of Saltmarsh can now be shared.</li>
+<li style="color:Blue;">Fixed a typo in The Hound of Xoriat.</li>
+<li style="color:Blue;">Corrected a typo in Caught in the Web.</li>
+<li style="color:Blue;">Angelskin, Animal Growth, and Righteous Command have had their durations corrected in their tooltips.</li>
+<li style="color:Blue;">Prismatic Strike now gains caster levels from the correct sources, to reflect that it is a fire, force, and electric spell.</li>
+<li style="color:Blue;">The Alchemist spells Melt Armor, Voltaic Backlash, Corrode Weapons, and Cold Spike now have correct dice in their tooltips.</li>
+<li style="color:Blue;">The Alchemist Past Life icon has been updated.</li>
 </ul>
 <h3>Engineering:</h3>
 <ul>
-<li>-</li>
+<li>There are three new UI options:<ul>
+<li>Show Filigree Descriptions (Default: On): When active, Filigree in items display their descriptions and when inactive only names are shown.</li>
+<li>Show Uncompleted Sets (Default: On): When active, set bonuses display both set bonuses you have active and bonuses that are inactive. When off, only active set bonuses are displayed.</li>
+<li>Prevent Heal Soft Targeting (Default: On): This toggle forces your healing spells to use your hard target or self-target and not your soft target.</li></ul></li>
+<li>Several small adjustments have been made to Filigree and Set Bonus displays to make them easier to read.</li>
+<li>The Spell Selector window (for spells such as Teleport and Fire Shield) now remembers its position.</li>
+<li>The Quest Selection UI now spells Receive correctly in its tooltips.</li>
+<li>The Examination window now remembers its position.</li>
+<li>There is a new button to Delete All Confirmed Mail. Note that this will not function if any mail in your Confirmed tab has any attachments.</li>
+<li>The Empty Slots field of the sorted inventory panel now matches its background area better.</li>
+<li style="color:Blue;">LFMs now display their difficulty on the listing itself without needing someone to hover over them.</li>
+<li style="color:Blue;">LFMs can now properly display Epic Reaper as a difficulty.</li>
+<li style="color:Blue;">We have made an adjustment to some assets to allow them to be used by our player user interface skinning community. If you are an experienced DDO UI skin creator you should now have access to replace several assets that you previously could not. Please let us know about your experience!</li>
+<li style="color:Blue;">The game now tells you why trying to augment an item with a Legacy Augment slotted will not work.</li>
+<li style="color:Blue;">The Unspent Action Point Alert now counts your points correctly.</li>
+<li style="color:Blue;">The Delete All button for confirmed mail now shows a more accurate warning message.</li>
 </ul>
 
 <h2>Update 52</h2>
