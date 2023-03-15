@@ -1,0 +1,21 @@
+CACHE MANIFEST
+# 2021-05-03, v1
+index.html
+material-elements.css
+material-dark.css
+material-depth.css
+material-widgets.css
+material-touch.js
+demo/fonts/roboto.css
+demo/fonts/Roboto-Bold.ttf
+demo/fonts/Roboto-Medium.ttf
+demo/fonts/Roboto-Regular.ttf
+demo/fonts/RobotoMono-Regular.ttf
+demo/icons/appbar1.png
+demo/icons/appbar2.png
+demo/icons/appbar3.svg
+demo/icons/toolbar1.png
+demo/icons/toolbar2.png
+demo/icons/toolbar3.svg
+logo/favicon.ico
+logo/icon_192.png
