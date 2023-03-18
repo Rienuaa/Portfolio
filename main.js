@@ -75,16 +75,19 @@ function CheckBoxCommentary(checkboxElement)
 {
   var IsChecked = checkboxElement.checked;
   
-  var commentary = document.getElementsByClassName("commentary");
+  var commentary = document.getElementsByTagName("li");
   for ( var i = 0; i < commentary.length; i++ )
   {
-    if ( IsChecked )
+    if (commentary[i].className != "commentary")
     {
-      commentary[i].style.display = "block";
-    }
-    else
-    {
-      commentary[i].style.display = "none";
+      if ( IsChecked )
+      {
+        commentary[i].style.display = "none";
+      }
+      else
+      {
+        commentary[i].style.display = "list-item";
+      }
     }
   }
 }

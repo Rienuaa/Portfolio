@@ -21,8 +21,8 @@
     <input type="checkbox" id="EngineeringCheckbox" name="EngineeringCheckbox" value="EngineeringCheckbox" onclick="CheckBoxEngineering(this)" checked>
     <label for="EngineeringCheckbox" style="position:relative; top:-.8em; left:-.5em;">Engineering Work</label>
     <br>
-    <input type="checkbox" id="CommentaryCheckbox" name="CommentaryCheckbox" value="CommentaryCheckbox" onclick="CheckBoxCommentary(this)" style="display:none;">
-    <label for="CommentaryCheckbox" style="position:relative; top:-.8em; left:-.5em; display:none;">Only entries with commentary</label>
+    <input type="checkbox" id="CommentaryCheckbox" name="CommentaryCheckbox" value="CommentaryCheckbox" onclick="CheckBoxCommentary(this)">
+    <label for="CommentaryCheckbox" style="position:relative; top:-.8em; left:-.5em;">Only entries with commentary</label>
   </div>
   <div id="header" style="clear:left;">
     <h1>Everything I have done for DDO</h1>
@@ -85,8 +85,8 @@
         <li>Ameliorating Strike from Warpriest now correctly heals undead players.</li>
         <li>The Inventory Heavy alert now has its correct text again.</li>
         <li>The Shield Specialty feat now grants its correct Physical Resistance Rating.</li>
-        <li>Snowpeak's Gift filigrees now have their Imbue stack correctly.</li>
-        <li>Battle Engineer cores now properly provide their Universal Spell Power.</li>
+        <li>Snowpeak's Gift filigrees now have their Imbue dice stack correctly.</li>
+        <li class="commentary"><span class="base">Battle Engineer cores now properly provide their Universal Spell Power.</span><span class="tooltip">This bug was caused by an order of operations failure within our visual scripting system. Imagine a set of switch results that return a value based on a key - in this case, charge tier - but the statements are ordered like so: "if charge tier is greater than 0, return 0. if charge tier is greater than 1, return 1." Because the first check precludes the second for any value, the subsequent charge tiers would cease to function as they were unlocked. This was fixed by nesting the script checks such that the check for tier 1 would happen within check 0, and would continue on to tiers 2 and 3 and so on without hitting an erroneous dead end. Honestly quite a fun bug to run down.</span></li>
         <li style="color:Blue;">Repair Amplification now functions correctly.</li>
         <li style="color:Blue;">Warlock's Fiend Pact once again deals appropriate Fire damage.</li>
         <li style="color:Blue;">The Anniversary Event now has its correct maximum level of 37.</li>
@@ -95,14 +95,12 @@
         <li style="color:Blue;">Dark Hunter's Action Boosts now have their appropriate maximum charges.</li>
         <li style="color:Blue;">Smoke grenades now have their proper visuals.</li>
         <li style="color:Blue;">Bleed imbue is now properly exclusive with other imbues.</li>
-        <li style="color:Blue;">Acolyte of the Skin</li>
         <li style="color:Blue;">Several general animation issues for Acolyte of the Skin have been corrected.</li>
         <li style="color:Blue;">SLAs no longer report Arcane Spell Failure incorrectly.</li>
         <li style="color:Blue;">Tier 1 of Shintao's "Iron Skin" now provides its proper Physical Resistance Rating.</li>
         <li style="color:Blue;">Certain bows have had their Dexterity to Damage restored.</li>
         <li style="color:Blue;">Elemental Weapons and Greater Elemental Weapons spells now have a three second cooldown.</li>
-        <li style="color:Blue;">Shadow Dragon Breath from Draconic Incarnation is no longer improperly offset.</li>
-        <li style="color:Blue;">A missing Vistani Knife Fighter running backwards animation for Elf males has been corrected.</li>
+        <li style="color:Blue;" class="commentary"><span class="base">Shadow Dragon Breath from Draconic Incarnation is no longer improperly offset.</span><span class="tooltip">The offset was occurring because the visuals for this ability had their roots in the Ravenloft Rune Arm fire visuals - the particles were firing from your left hand bone instead of your mouth.</span></li>
         <li style="color:Blue;">The True Fiend Pact now has the correct pact dice in its tooltip.</li>
         </ul>
       </div>
@@ -110,7 +108,7 @@
         <h3>Engineering:</h3>
         <ul>
         <li>There is a new gameplay option: Show Detailed Chest Information (Default: false). While true, the first time you touch a chest (and generate its loot) the chest will print out some information about its ransack info into your chat log. Only you can see this info.</li>
-        <li>A series of changes have been made to tooltip generation.<ul>
+        <li>A series of changes have been made to tooltip generation:<ul>
         <li>The names of Feats and Enhancements are now bigger in their tooltips to make it easier to parse what they are.</li>
         <li>SLA tooltips now display spell info, such as their spell point cost, spell DC, and spell school, automatically.</li>
         <li>Certain aspects of enhancements no longer show in the tooltip (such as prerequisites) if you own the enhancement and are looking via your character sheet. When hovered over in the tree they will show their AP cost and prerequisites as usual.</ul></li></li>
@@ -150,7 +148,7 @@
       <div class="features">
         <h3>Main Features:</h3>
         <ul>
-        <li>Imbue Overhaul</li>
+        <li class="commentary"><span class="base">Imbue Overhaul</span><span class="tooltip">This was a lot of fun to design and implement. I really love systems that fit across the entire game - especially if they give me an opportunity to boost up some underutilized options. I think the whole thing came together pretty well in the end. The overhaul consisted of identifying and linking together roughly 50 disparate small sources of proc damage and boosts to that proc damage into one, scalable, performant system that would be easy to add additional options to later down the line. Minor boost in game performance, too!</span></li>
         <li style="color:Blue;">New Snowpeaks Event Rewards</li>
         </ul>
       </div>
