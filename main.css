@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+.header h2 
+{
+  float: left;
+}
+
+.header p
+{
+  position:relative;
+  top:1.5em;
+  left:.5em;
+  font-size:80%;
+}
+
+hr
+{
+  clear: left;
+}
+
+.features
+{
+  clear: left;
+}
+
+.balance
+{
+  clear: left;
+}
+
+.bugfixes
+{
+  clear: left;
+}
+
+.engineering
+{
+  clear: left;
+}
