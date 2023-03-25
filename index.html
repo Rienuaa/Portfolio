@@ -13,7 +13,7 @@
     <label for="MainFeaturesCheckbox" style="position:relative; top:-.8em; left:-.5em;">Headline Features</label>
     <br>
     <input type="checkbox" id="BalanceCheckbox" name="BalanceCheckbox" value="BalanceCheckbox" onclick="CheckBoxBalance(this)" checked>
-    <label for="BalanceCheckbox" style="position:relative; top:-.8em; left:-.5em;">Balance Changes</label>
+    <label for="BalanceCheckbox" style="position:relative; top:-.8em; left:-.5em;">Balance Changes and Small Features</label>
     <br>
     <input type="checkbox" id="BugfixCheckbox" name="BugfixCheckbox" value="BugfixCheckbox" onclick="CheckBoxBugfix(this)" checked>
     <label for="BugfixCheckbox" style="position:relative; top:-.8em; left:-.5em;">Bug Fixes</label>
@@ -43,7 +43,7 @@
         </ul>
       </div>
       <div class="balance">
-        <h3>Balance:</h3>
+        <h3>Balance and Small Features:</h3>
         <ul>
         <li>Smoke Bomb's Spell Point cost has been reduced to 6 Spell Points.</li>
         <li>The feat Nimble Fingers now requires the Trapfinding feat and not Rogue/Artificer levels.</li>
@@ -57,6 +57,7 @@
         <li>Enervating Shadow stance now scales with 150% Spell Power.</li>
         <li>All other Eldritch Blast Shapes now scale at 100% Spell Power.</li>
         <li>The level 15 Warlock Pact Special abilities now scale as if they were spells and are modified by bonus Spell DCs.</ul></li></li>
+        <li>Healing/repair/negative amp now only applies if you are actually healing from that damage type instead of if you are healing or taking damage from that type.</li>
         </ul>
       </div>
       <div class="bugfixes">
@@ -73,7 +74,6 @@
         <li>The first core of barbarian Frenzied Berserker no longer erroneously states "duration: permanent".</li>
         <li>The first core of Tiefling and Tiefling Scoundrel grants its +5 Spell Power again.</li>
         <li>Primal Avatar Mantle of Nature: Thorn now has its correct tooltip in the buff bar.</li>
-        <li>Healing/repair/negative amp now only applies if you are actually healing from that damage type instead of if you are healing or taking damage from that type.</li>
         <li>Unquenchable Rage from Primal Avatar now does its intended effect.</li>
         <li>Luck of Olladra may now be used on friends.</li>
         <li>Divine Energy Resistance in Sacred Fist now correctly scales with Paladin level instead of Cleric level.</li>
@@ -153,7 +153,7 @@
         </ul>
       </div>
       <div class="balance">
-        <h3>Balance:</h3>
+        <h3>Balance and Small Features:</h3>
         <ul>
         <li>The level 1 Bolt spells no longer share a cooldown.</li>
         </ul>
@@ -215,7 +215,7 @@
         </ul>
       </div>
       <div class="balance">
-        <h3>Balance:</h3>
+        <h3>Balance and Small Features:</h3>
         <ul>
         <li>Great Weapon Aptitude now allows Natural Fighting as one of its prerequisites instead of just Two Handed Fighting.</li>
         <li>Khyber Dragonshards no longer drop. Recipes that use Khyber Dragonshards now use Siberys Dragonshards instead.</li>
@@ -240,7 +240,7 @@
         <li>Warchanter's Iced Edges now scales with Spell Power.</li>
         <li>House Jorasco Favor buffs now have a "give me the works" option that charges the total platinum you'd get from just clicking them all individually.</li>
         <li>House Phiarlan Favor buffs now last for 60 minutes.</li>
-        <li>Fred can now combine Dragonshards for you.</li>
+        <li class="commentary"><span class="base">Fred can now combine Dragonshards for you.</span><span class="tooltip">This has probably saved at least 10 seconds total across the entire population of the game! 10 whole seconds!</span></li>
         <li>Spells that may target undead friends (aka Inflict spells) can now validate the caster as a redirected target (aka be cast targeting the caster implicitly) as long as the caster is undead.</li>
         <li>The spells Bless, Prayer, and Bane all now have a cooldown of 10 seconds.</li>
         <li>Base Attack Bonus is now capped at 25.</li>
@@ -272,7 +272,7 @@
         <li>Unyielding Sentinel's Resurrection no longer erroneously requires 20 levels, is now 30 as intended.</li>
         <li>Tabaxi's Dexterity to Damage now works correctly in Animal Form.</li>
         <li>Weapons without an ability score modifier to damage no longer show a negative base damage rating.</li>
-        <li>Perfected Darkstorm Helm now has a caster level.</li>
+        <li class="commentary"><span class="base">Perfected Darkstorm Helm now has a caster level.</span><span class="tooltip">Bug from reddit :)</span></li>
         <li>A large variety of text bugs and inconsistencies have been fixed.</li>
         <li>Monsters will no longer randomly gain stone prison on-hit effects due to your own gear</li>
         <li>Several Dinosaur Bone Crafting affixes no longer have an erroneous Saving Throw.</li>
@@ -340,7 +340,7 @@
         </ul>
       </div>
       <div class="balance">
-        <h3>Balance:</h3>
+        <h3>Balance and Small Features:</h3>
         <ul>
         <li>You may now trade 100 pack ingredients for a Star Fragment, and 100 Star Fragments and 500 Threads of Fate for a Nebula Fragment.</li>
         <li>Enchantment DCs are now an option in Tier 3 of Magus of the Eclipse.</li>
@@ -482,7 +482,7 @@
       <div class="features">
       </div>
       <div class="balance">
-        <h3>Balance:</h3>
+        <h3>Balance and Small Features:</h3>
         <ul>
         <li>When you Release from a dungeon while dead, you will be brought back to life with 20 Hit Points instead of 1 HP.</li>
         <li>Trap the Soul has gotten an overhaul:<ul>
@@ -594,9 +594,9 @@
         </ul>
       </div>
       <div class="balance">
-        <h3>Balance:</h3>
+        <h3>Balance and Small Features:</h3>
         <ul>
-        <li>You may now Barter for Sands of Menechtarun wilderness loot from Masei Mkembe's Barter Shop in Zawabi's Refuge if you have Antique Bronze Tokens to spare.</li>
+        <li class="commentary"><span class="base">You may now Barter for Sands of Menechtarun wilderness loot from Masei Mkembe's Barter Shop in Zawabi's Refuge if you have Antique Bronze Tokens to spare.</span><span class="tooltip">Players seem to really appreciate this - especially because the Sands wilderness is heroic-only. Plus, it gave Bronze Tokens a temporary 10,000,000% price bump!</span></li>
         <li>Dripping with Magma now triggers once every 1 second instead of .25.</li>
         <li>Elditch Knight's visuals now change color depending on which Spellsword Toggle you have turned on.</li>
         <li style="color:Blue;">Spell Penetration Augments have been adjusted upwards to match the scaling of named and random loot.</li>
@@ -744,18 +744,18 @@
         </ul>
       </div>
       <div class="balance">
-        <h3>Balance:</h3>
+        <h3>Balance and Small Features:</h3>
         <ul>
         <li>Diversion from Ninja Spy now adds its five Sneak Attack dice without requiring you to be using a Quarterstaff.</li>
         <li>The Crown of Summer from the Druid's Season' Herald tree is now: "You have a +15 Enhancement bonus to Positive Healing Amplification, a +15 Enhancement bonus to Melee Power, and a +10 Enhancement bonus to Ranged Power."</li>
         <li>The Crown of Summer item enchantment is now: "You have a +15 Enhancement Bonus to Positive Healing Amplification, a +10 Enhancement Bonus to Melee Power, and a +5 Enhancement bonus to Ranged Power."</li>
         <li>Several new augments are now available in-game: Healing Amplification, Repair Amplification, Negative Amplification, Melee Power, Ranged Power.</li>
+        <li>Earning a Reaper Action Point now briefly displays visuals on your character.</li>
         </ul>
       </div>
       <div class="bugfixes">
         <h3>Bugfixes:</h3>
         <ul>
-        <li>Earning a Reaper Action Point now briefly displays visuals on your character.</li>
         <li>Enervation and Rend the Soul no longer apply through Deathward.</li>
         <li>Enervation now takes Metamagic feats properly.</li>
         <li>Sleeping in Brawnpits' bed no longer spams a voice line repeatedly.</li>
@@ -860,7 +860,7 @@
         </ul>
       </div>
       <div class="balance">
-        <h3>Balance:</h3>
+        <h3>Balance and Small Features:</h3>
         <ul>
         <li>The Enervation spell now applies a Negative Damage Over Time effect.</li>
         <li>The following spells are now in spell books:<ul>
@@ -875,6 +875,8 @@
         <li>Tsunami - Level 9</li></ul></li>
         <li>Sorcerer/Wizard<ul>
         <li>Arcane Tempest - Level 8</li></ul></li></ul></li>
+        <li>You may now trade Tomes of Fate for Purified Eberron Dragonshards.</li>
+        <li>The values of Assassinate DC bonuses found on items has increased significantly.</li>
         </ul>
       </div>
       <div class="bugfixes">
@@ -884,8 +886,6 @@
         <li>Several Falconry bird attacks now properly factor in their Assassinate bonuses.</li>
         <li>Pale Master's Improved Zombie Form now properly penalizes your attack speed.</li>
         <li>Archer's Focus no longer spams your combat log.</li>
-        <li>You may now trade Tomes of Fate for Purified Eberron Dragonshards.</li>
-        <li>The values of Assassinate DC bonuses found on items has increased significantly.</li>
         <li>Legacy Augment Unslotters are now Bound to Account.</li>
         <li>Cannith Crafted Keen no longer sometimes stops working.</li>
         <li>Dragonborn can now properly use the Druid Cold Breath spell.</li>
@@ -952,10 +952,14 @@
         </ul>
       </div>
       <div class="balance">
-        <h3>Balance:</h3>
+        <h3>Balance and Small Features:</h3>
         <ul>
         <li>Underwater combat has been adjusted for playability, and no longer adjusts what spells are able to be cast, penalize your movement or attack rates as severely, and instead makes fire spells deal 80% damage and electric spells deal 120% while underwater.</li>
         <li>Druids now get Protection from Elements, Mass as a level 7 spell.</li>
+        <li>Trap the Soul now requires a standalone special component called a Khyber Dragonshard that is found in shops wherever high quality spell components may be found. This component works for all variations of Trap the Soul.</li>
+        <li style="color:Blue;">Commendations of Heroism can now be turned in for Greater Tokens of the Twelve on a one to one (1:1) basis by speaking to Lahar in The Twelve.</li>
+        <li style="color:Blue;">Epic chests throughout Saltmarsh now have a small chance of also dropping 1,000 Sentient XP gems.</li>
+        <li style="color:Blue;">Players can now trade 250 Threads of Fate for a Soul Vessel. Open the Threads of Fate barter window by double-clicking on Threads of Fate in your inventory.</li>
         </ul>
       </div>
       <div class="bugfixes">
@@ -975,7 +979,6 @@
         <li>Patron Reward feats should now consistently remain on you through Lesser and Epic Reincarnations.</li>
         <li>Burst of Glacial Wrath now works on everything, rather than erroneously excluding certain monsters.</li>
         <li>Permanent Gold Seal Hirelings, such as the Onyx Panther, Saltmarsh Bullywug Rogue, and Owlbear Defender are now Bound to Account.</li>
-        <li>Trap the Soul now requires a standalone special component called a Khyber Dragonshard that is found in shops wherever high quality spell components may be found. This component works for all variations of Trap the Soul.</li>
         <li>Brilliant Crescent (main hand) now works with Swashbuckling.</li>
         <li>The Flamecleansed Fury set's Spell Crit Chance is now properly Artifact-typed.</li>
         <li>The Hruit's Influence set's Spell Crit Chance is now properly Artifact-typed.</li>
@@ -997,8 +1000,6 @@
         <li style="color:Blue;">Ingredients used in upgrading Scroll/Seal/Shard items now describe in their tooltip which crafting device they are used in.</li>
         <li style="color:Blue;">Upgrading Heroic Scroll/Seal/Shard items now properly requires Greater Tokens of the Twelve.</li>
         <li style="color:Blue;">Some items have had miscellaneous small issues corrected.</li>
-        <li style="color:Blue;">Commendations of Heroism can now be turned in for Greater Tokens of the Twelve on a one to one (1:1) basis by speaking to Lahar in The Twelve.</li>
-        <li style="color:Blue;">Epic chests throughout Saltmarsh now have a small chance of also dropping 1,000 Sentient XP gems.</li>
         <li style="color:Blue;">Corrected an issue that prevented players with an old Epic version of the Web of Chaos items from cleansing them at the Legacy Altar of Epic Rituals.</li>
         <li style="color:Blue;">Contained augments now display their minimum level.</li>
         <li style="color:Blue;">Favored Weapons are once more properly recognized on log in without needing to unequip and re-equip them.</li>
@@ -1010,7 +1011,6 @@
         <li style="color:Blue;">Several small item bugs have been fixed.</li>
         <li style="color:Blue;">Several typos in the Epic and Legendary item crafting system have been corrected.</li>
         <li style="color:Blue;">After acquiring a feat, enhancement, or destiny ability that grants a new Favored Weapon, you no longer need to unequip and then re-equip your main hand weapon for it to be properly recognized as a Favored Weapon.</li>
-        <li style="color:Blue;">Players can now trade 250 Threads of Fate for a Soul Vessel. Open the Threads of Fate barter window by double-clicking on Threads of Fate in your inventory.</li>
         <li style="color:Blue;">Saltmarsh throwing weapons now fly correctly.</li>
         <li style="color:Blue;">Vulkoorim Fighting Leathers can now be properly upgraded.</li>
         <li style="color:Blue;">The Lizardfolk Sentient Jewel now displays properly in your weapon tooltip.</li>
@@ -1082,7 +1082,7 @@
         </ul>
       </div>
       <div class="balance">
-        <h3>Balance:</h3>
+        <h3>Balance and Small Features:</h3>
         <ul>
         <li>Feytwisted Raid Items are now able to be acquired by spending Raid Runes.</li>
         </ul>
@@ -1158,7 +1158,7 @@
         </ul>
       </div>
       <div class="balance">
-        <h3>Balance:</h3>
+        <h3>Balance and Small Features:</h3>
         <ul>
         <li style="color:Blue;">Warlock Aura colors now change depending on your Pact Choice.</li>
         <li style="color:Blue;">Offhand Versatility's Orb/Runearm effect is now: On Vorpal strike while Single Weapon Fighting, for the next 5 seconds, all of your spells will automatically crit.</li>
@@ -1264,7 +1264,7 @@
         </ul>
       </div>
       <div class="balance">
-        <h3>Balance:</h3>
+        <h3>Balance and Small Features:</h3>
         <ul>
         <li>New Generation 2 split-set filigree have been released, check the Threads of Fate crafting window to see them.</li>
         <li>The Scion of the Feywild Legendary feat now grants +4 Illusion DCs instead of +2.</li>
@@ -1350,7 +1350,7 @@
         </ul>
       </div>
       <div class="balance">
-        <h3>Balance:</h3>
+        <h3>Balance and Small Features:</h3>
         <ul>
         <li style="color:Blue;">Hurl Through Hell and Create Thrall have had their base DC changed from 10 to 15.</li>
         <li style="color:Blue;">The level 6 and level 12 core abilities from all four Sorcerer Elemental Savant trees no longer grant +1 Maximum Caster Level with the chosen element.</li>
@@ -1440,7 +1440,7 @@
         </ul>
       </div>
       <div class="balance">
-        <h3>Balance:</h3>
+        <h3>Balance and Small Features:</h3>
         <ul>
         <li>Various percentage hit point bonuses are being adjusted as follows:<ul>
         <li>Stalwart and Sacred Defender: remain at 20% Competence.</li>
@@ -1547,7 +1547,7 @@
         </ul>
       </div>
       <div class="balance">
-        <h3>Balance:</h3>
+        <h3>Balance and Small Features:</h3>
         <ul>
         <li>The Base Attack Speed for bows and throwing weapons has been adjusted for a better experience in the Heroic levels, while keeping the current maximum attack speed at Base Attack Bonus 25 and above. This change approximately doubles the relationship between Base Attack Bonus and Attack Speed, but adjusts the per-level progression to provide less of a per-level increase. Players at all levels should experience an increase in animation smoothness and Attack Speed, with the increase tapering off as your Base Attack Bonus increases.</li>
         <li>Fulcrum Shift has been redesigned, and is now: Kick 'Em While They're Down: You have +5 to-hit and damage to enemies that are knocked down or stunned.</li>
@@ -1661,7 +1661,7 @@
         </ul>
       </div>
       <div class="balance">
-        <h3>Balance:</h3>
+        <h3>Balance and Small Features:</h3>
         <ul>
         <li>Druid: Tier 1 of "Force of Nature" (in Tier 5 of Nature's Protector) now grants the following in addition to its current effects: "Your attunement to Nature is emboldened - Your Druidic Oath is no longer broken by wearing metal armor or shields."</li>
         <li style="color:Blue;">The Boarding Pass: Sharn now allows you to select one of the following four teleport locations: Clifftop Tower District, Sharn Docks, Alcorin's Forge, and the Drunken Dragon Tavern.</li>
@@ -1787,7 +1787,7 @@
         </ul>
       </div>
       <div class="balance">
-        <h3>Balance:</h3>
+        <h3>Balance and Small Features:</h3>
         <ul>
         <li>Warchanter's capstone is now +2 Charisma instead of +2 Strength.</li>
         <li>Prowess' 5 Piece Set is now: Whenever you activate an Action Boost, gain +50 Melee Power for 10 seconds.</li>
