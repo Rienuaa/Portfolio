@@ -10,23 +10,23 @@
   <div id="controls" style="border: 2px solid black; position: fixed; background: white; float:right; padding:5px; right:0%;">
     <h3 style="text-align: center;">Show me...</h3>
     <input type="checkbox" id="MainFeaturesCheckbox" name="MainFeaturesCheckbox" value="MainFeaturesCheckbox" onclick="CheckBoxHeadline(this)" checked>
-    <label for="MainFeaturesCheckbox" style="position:relative; top:-.8em; left:-.5em;">Headline Features</label>
+    <label for="MainFeaturesCheckbox" id="FeatureLabel" style="position:relative; top:-.8em; left:-.5em;">Headline Features</label>
     <br>
     <input type="checkbox" id="BalanceCheckbox" name="BalanceCheckbox" value="BalanceCheckbox" onclick="CheckBoxBalance(this)" checked>
-    <label for="BalanceCheckbox" style="position:relative; top:-.8em; left:-.5em;">Balance Changes and Small Features</label>
+    <label for="BalanceCheckbox" id="BalanceLabel" style="position:relative; top:-.8em; left:-.5em;">Balance Changes and Small Features</label>
     <br>
     <input type="checkbox" id="BugfixCheckbox" name="BugfixCheckbox" value="BugfixCheckbox" onclick="CheckBoxBugfix(this)" checked>
-    <label for="BugfixCheckbox" style="position:relative; top:-.8em; left:-.5em;">Bug Fixes</label>
+    <label for="BugfixCheckbox" id="BugfixLabel" style="position:relative; top:-.8em; left:-.5em;">Bug Fixes</label>
     <br>
     <input type="checkbox" id="EngineeringCheckbox" name="EngineeringCheckbox" value="EngineeringCheckbox" onclick="CheckBoxEngineering(this)" checked>
-    <label for="EngineeringCheckbox" style="position:relative; top:-.8em; left:-.5em;">Engineering Work</label>
+    <label for="EngineeringCheckbox" id="EngineeringLabel" style="position:relative; top:-.8em; left:-.5em;">Engineering Work</label>
     <br>
     <input type="checkbox" id="CommentaryCheckbox" name="CommentaryCheckbox" value="CommentaryCheckbox" onclick="CheckBoxCommentary(this)">
     <label for="CommentaryCheckbox" style="position:relative; top:-.8em; left:-.5em;">Only entries with commentary</label>
   </div>
   <div id="header" style="clear:left;">
     <h1>Everything I have done for DDO</h1>
-    <p>Everything listed here is a feature or fix that I have either built or majorly designed. I have omitted release notes for items I did not contribute meaningfully towards. <span style="color:Blue;">List items in blue were added in a subsequent patch.</span></p>
+    <p>Everything listed here is a feature or fix that I have either built or majorly designed. I have omitted release notes for items I did not contribute meaningfully towards. <br><span style="color:Blue;">List items in blue were added in a subsequent patch.</span></p>
   </div>
   <hr>
   <div id="updates">
