@@ -1,9 +1,9 @@
 
-function CheckBoxHeadline(checkboxElement)
+function CheckBoxFeature(checkboxElement, ClassName)
 {
   var IsChecked = checkboxElement.checked;
   
-  var features = document.getElementsByClassName("features");
+  var features = document.getElementsByClassName(ClassName);
   for ( var i = 0; i < features.length; i++ )
   {
     if ( IsChecked )
@@ -13,60 +13,6 @@ function CheckBoxHeadline(checkboxElement)
     else
     {
       features[i].style.display = "none";
-    }
-  }
-}
-
-function CheckBoxBalance(checkboxElement)
-{
-  var IsChecked = checkboxElement.checked;
-  
-  var balance = document.getElementsByClassName("balance");
-  for ( var i = 0; i < balance.length; i++ )
-  {
-    if ( IsChecked )
-    {
-      balance[i].style.display = "block";
-    }
-    else
-    {
-      balance[i].style.display = "none";
-    }
-  }
-}
-
-function CheckBoxBugfix(checkboxElement)
-{
-  var IsChecked = checkboxElement.checked;
-  
-  var bugfixes = document.getElementsByClassName("bugfixes");
-  for ( var i = 0; i < bugfixes.length; i++ )
-  {
-    if ( IsChecked )
-    {
-      bugfixes[i].style.display = "block";
-    }
-    else
-    {
-      bugfixes[i].style.display = "none";
-    }
-  }
-}
-
-function CheckBoxEngineering(checkboxElement)
-{
-  var IsChecked = checkboxElement.checked;
-  
-  var engineering = document.getElementsByClassName("engineering");
-  for ( var i = 0; i < engineering.length; i++ )
-  {
-    if ( IsChecked )
-    {
-      engineering[i].style.display = "block";
-    }
-    else
-    {
-      engineering[i].style.display = "none";
     }
   }
 }
@@ -98,10 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function ShowStats()
 {
-  let headlines = GetTotalHeadlineFeatures();
-  let balance = GetTotalBalanceChanges();
-  let bugs = GetTotalBugfixes();
-  let engineering = GetTotalEngineeringChanges();
+  let headlines = GetTotalFeaturesByClassName("features");
+  let balance = GetTotalFeaturesByClassName("balance");
+  let bugs = GetTotalFeaturesByClassName("bugfixes");
+  let engineering = GetTotalFeaturesByClassName("engineering");
   
   document.getElementById("FeatureLabel").innerHTML = "Headline Features (" + headlines + ")";
   document.getElementById("BalanceLabel").innerHTML = "Balance Changes and Small Features (" + balance + ")";
@@ -111,17 +57,17 @@ function ShowStats()
 
 function GetTotalEntries()
 {
-  let headline = GetTotalHeadlineFeatures();
-  let balance = GetTotalBalanceChanges();
-  let bugs = GetTotalBugfixes();
-  let engineering = GetTotalEngineeringChanges();
+  let headline = GetTotalFeaturesByClassName("features");
+  let balance = GetTotalFeaturesByClassName("balance");
+  let bugs = GetTotalFeaturesByClassName("bugfixes");
+  let engineering = GetTotalFeaturesByClassName("engineering");
   
   return headline + balance + bugs + engineering;
 }
 
-function GetTotalHeadlineFeatures()
+function GetTotalFeaturesByClassName( ClassName )
 {
-  var features = document.getElementsByClassName("features");
+  var features = document.getElementsByClassName(ClassName);
   
   let total = 0;
   
@@ -143,63 +89,65 @@ function GetTotalHeadlineFeatures()
   return total;
 }
 
-function GetTotalBalanceChanges()
+function ShowGraphButton()
 {
-  var balance = document.getElementsByClassName("balance");
+  var graph = document.getElementById("GraphSection");
   
-  let total = 0;
-  
-  for ( var i = 0; i < balance.length; i++ )
+  if ( graph.style.display == "none" )
   {
-    var children = balance[i].children;
+    graph.style.display = "block";
     
-    for ( var j = 0; j < children.length; j++ )
-    {
-      var child = children[j];
-
-      if ( child.nodeName == "UL" )
-      {
-        total += child.childElementCount;
-      }
-    }
+    document.getElementById("GraphButton").innerHTML = "Hide Graph";
+    
+    SetupGraph();
   }
-
-  return total;
+  else
+  {
+    graph.style.display = "none";
+    
+    document.getElementById("GraphButton").innerHTML = "Show Graph";
+  }
 }
 
-function GetTotalBugfixes()
+function GetLabels()
 {
-  var bugfixes = document.getElementsByClassName("bugfixes");
+  var headers = document.getElementsByClassName("header");
   
-  let total = 0;
+  let labels = [];
   
-  for ( var i = 0; i < bugfixes.length; i++ )
+  for ( var i = 0; i < headers.length; i++ )
   {
-    var children = bugfixes[i].children;
+    var children = headers[i].children;
     
     for ( var j = 0; j < children.length; j++ )
     {
       var child = children[j];
 
-      if ( child.nodeName == "UL" )
+      if ( child.nodeName == "H2" )
       {
-        total += child.childElementCount;
+        var split = child.innerHTML.split(":");
+        labels.push( split[0] );
       }
     }
   }
-
-  return total;
+  
+  return labels.reverse();
 }
 
-function GetTotalEngineeringChanges()
+function GetFeatureDataByClassName( ClassName )
 {
-  var engineering = document.getElementsByClassName("engineering");
+  var features = document.getElementsByClassName( ClassName );
   
-  let total = 0;
+  let featureData = [];
   
-  for ( var i = 0; i < engineering.length; i++ )
+  for ( var i = 0; i < features.length; i++ )
   {
-    var children = engineering[i].children;
+    var children = features[i].children;
+    
+    if (children.length == 0)
+    {
+      featureData.push(0);
+    }
     
     for ( var j = 0; j < children.length; j++ )
     {
@@ -207,10 +155,72 @@ function GetTotalEngineeringChanges()
 
       if ( child.nodeName == "UL" )
       {
-        total += child.childElementCount;
+        featureData.push(child.childElementCount);
       }
     }
   }
 
-  return total;
+  return featureData.reverse();
+}
+
+function SetupGraph()
+{
+  var GraphLabels = GetLabels();
+  
+  var HeadlineData = GetFeatureDataByClassName("features");
+  var SmallFeatureData = GetFeatureDataByClassName("balance");
+  var BugfixData = GetFeatureDataByClassName("bugfixes");
+  var EngineeringData = GetFeatureDataByClassName("engineering");
+  
+  Highcharts.chart('Graph', {
+    chart: {
+        type: 'area'
+    },
+    title: {
+        text: 'Changes by Update',
+        align: 'left'
+    },
+    xAxis: {
+      categories: GraphLabels
+    },
+    yAxis: {
+        title: {
+            useHTML: true,
+            text: "Changes"
+        }
+    },
+    tooltip: {
+        shared: true,
+        headerFormat: '<span style="font-size:12px"><b>{point.key}</b></span><br>'
+    },
+    plotOptions: {
+        series: {
+            //
+        },
+        area: {
+            stacking: 'normal',
+            lineColor: '#666666',
+            lineWidth: 1,
+            marker: {
+                lineWidth: 1,
+                lineColor: '#666666'
+            }
+        }
+    },
+    series: [{
+        name: 'Headline Features',
+        data: HeadlineData
+    }, {
+        name: 'Balance and Small Features',
+        data: SmallFeatureData
+
+    }, {
+        name: 'Bug Fixes',
+        data: BugfixData
+    }, {
+        name: 'Engineering Changes',
+        data: EngineeringData
+
+    }]
+});
 }

@@ -72,3 +72,28 @@ hr
 .commentary:hover .tooltip {
   visibility: visible;
 }
+
+#controls {
+  border: 2px solid black;
+  position: fixed;
+  background: white;
+  float: right;
+  padding: 5px;
+  right: 0%;
+  bottom: 2%;
+  z-index: 9;
+}
+
+#header {
+  clear: left;
+}
+
+.patch {
+  color:Blue;
+}
+
+.CheckboxLabel {
+  position:relative;
+  top:-.8em;
+  left:-.5em;
+}
