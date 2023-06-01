@@ -15,6 +15,8 @@ function CheckBoxFeature(checkboxElement, ClassName)
       features[i].style.display = "none";
     }
   }
+  
+  SetupGraph();
 }
 
 function CheckBoxCommentary(checkboxElement)
@@ -44,15 +46,88 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function ShowStats()
 {
+  let total = GetTotalEntries();
   let headlines = GetTotalFeaturesByClassName("features");
   let balance = GetTotalFeaturesByClassName("balance");
   let bugs = GetTotalFeaturesByClassName("bugfixes");
   let engineering = GetTotalFeaturesByClassName("engineering");
   
-  document.getElementById("FeatureLabel").innerHTML = "Headline Features (" + headlines + ")";
-  document.getElementById("BalanceLabel").innerHTML = "Balance Changes and Small Features (" + balance + ")";
-  document.getElementById("BugfixLabel").innerHTML = "Bug Fixes (" + bugs + ")";
-  document.getElementById("EngineeringLabel").innerHTML = "Engineering Work (" + engineering + ")";
+  let updateNames = GetLabels();
+  let totalupdates = updateNames.length;
+  
+  var average = Math.floor( bugs / totalupdates );
+  
+  document.getElementById("StatsHeader").innerHTML = document.getElementById("StatsHeader").innerHTML.replace("$VALUE1$", total).replace("$VALUE2$", totalupdates);
+  
+  document.getElementById("StatsHeadline").innerHTML = document.getElementById("StatsHeadline").innerHTML.replace("$VALUE1$", headlines);
+  document.getElementById("StatsBalance").innerHTML = document.getElementById("StatsBalance").innerHTML.replace("$VALUE1$", balance);
+  document.getElementById("StatsBugs").innerHTML = document.getElementById("StatsBugs").innerHTML.replace("$VALUE1$", bugs);
+  document.getElementById("StatsEngineering").innerHTML = document.getElementById("StatsEngineering").innerHTML.replace("$VALUE1$", engineering);
+  
+  document.getElementById("StatsTextHeadline").innerHTML = document.getElementById("StatsTextHeadline").innerHTML.replace("$VALUE1$", GetHighestValue("features")).replace("$UPDATENAME$", UpdateNameWithHighestValue("features"));
+  document.getElementById("StatsTextBalance").innerHTML = document.getElementById("StatsTextBalance").innerHTML.replace("$VALUE1$", GetHighestValue("balance")).replace("$UPDATENAME$", UpdateNameWithHighestValue("balance"));
+  document.getElementById("StatsTextBugs").innerHTML = document.getElementById("StatsTextBugs").innerHTML.replace("$VALUE1$", GetHighestValue("bugfixes")).replace("$UPDATENAME$", UpdateNameWithHighestValue("bugfixes"));
+  document.getElementById("StatsTextEngineering").innerHTML = document.getElementById("StatsTextEngineering").innerHTML.replace("$VALUE1$", GetHighestValue("engineering")).replace("$UPDATENAME$", UpdateNameWithHighestValue("engineering"));
+  
+  document.getElementById("StatsTextTotal").innerHTML = document.getElementById("StatsTextTotal").innerHTML.replace("$VALUE1$", average);
+}
+
+function GetHighestValue( ClassName )
+{
+  var features = document.getElementsByClassName(ClassName);
+  
+  let highest = 0;
+  
+  for ( var i = 0; i < features.length; i++ )
+  {
+    var children = features[i].children;
+    
+    for ( var j = 0; j < children.length; j++ )
+    {
+      var child = children[j];
+
+      if ( child.nodeName == "UL" )
+      {
+        if ( child.childElementCount > highest )
+        {
+          highest = child.childElementCount;
+        }
+      }
+    }
+  }
+
+  return highest;
+}
+
+function UpdateNameWithHighestValue( ClassName )
+{
+  var features = document.getElementsByClassName(ClassName);
+  
+  let highest = 0;
+  let index = 0;
+  
+  for ( var i = 0; i < features.length; i++ )
+  {
+    var children = features[i].children;
+    
+    for ( var j = 0; j < children.length; j++ )
+    {
+      var child = children[j];
+
+      if ( child.nodeName == "UL" )
+      {
+        if ( child.childElementCount > highest )
+        {
+          highest = child.childElementCount;
+          index = i;
+        }
+      }
+    }
+  }
+  
+  let UpdateNames = GetLabels().reverse();
+
+  return UpdateNames[index];
 }
 
 function GetTotalEntries()
@@ -97,7 +172,7 @@ function ShowGraphButton()
   {
     graph.style.display = "block";
     
-    document.getElementById("GraphButton").innerHTML = "Hide Graph";
+    document.getElementById("GraphButton").innerHTML = "Hide Statistics";
     
     SetupGraph();
   }
@@ -105,7 +180,7 @@ function ShowGraphButton()
   {
     graph.style.display = "none";
     
-    document.getElementById("GraphButton").innerHTML = "Show Graph";
+    document.getElementById("GraphButton").innerHTML = "Show Statistics";
   }
 }
 
@@ -172,7 +247,7 @@ function SetupGraph()
   var BugfixData = GetFeatureDataByClassName("bugfixes");
   var EngineeringData = GetFeatureDataByClassName("engineering");
   
-  Highcharts.chart('Graph', {
+  var chart = new Highcharts.Chart('Graph', {
     chart: {
         type: 'area'
     },
@@ -206,21 +281,44 @@ function SetupGraph()
                 lineColor: '#666666'
             }
         }
-    },
-    series: [{
-        name: 'Headline Features',
-        data: HeadlineData
-    }, {
-        name: 'Balance and Small Features',
-        data: SmallFeatureData
-
-    }, {
-        name: 'Bug Fixes',
-        data: BugfixData
-    }, {
-        name: 'Engineering Changes',
-        data: EngineeringData
-
-    }]
-});
+    }
+  });
+  
+  if ( document.getElementById("MainFeaturesCheckbox").checked )
+  {
+    chart.addSeries({                        
+      name: 'Headline Features',
+      data: HeadlineData,
+      color: '#f22760'
+      }, false);
+  }
+  
+  if ( document.getElementById("BalanceCheckbox").checked )
+  {
+    chart.addSeries({                        
+      name: 'Balance and Small Features',
+      data: SmallFeatureData,
+      color: '#f7ae2f'
+      }, false);
+  }
+  
+  if ( document.getElementById("BugfixCheckbox").checked )
+  {
+    chart.addSeries({                        
+      name: 'Bug Fixes',
+      data: BugfixData,
+      color: '#3ef7aa'
+      }, false);
+  }
+  
+  if ( document.getElementById("EngineeringCheckbox").checked )
+  {
+    chart.addSeries({                        
+      name: 'Engineering Changes',
+      data: EngineeringData,
+      color: '#5289ff'
+      }, false);
+  }
+  
+  chart.redraw();
 }

@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="main.css">
   <script type="text/javascript" src="main.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 </head>
 <body>
   <div id="controls">
@@ -25,15 +26,28 @@
     <input type="checkbox" id="CommentaryCheckbox" name="CommentaryCheckbox" value="CommentaryCheckbox" onclick="CheckBoxCommentary(this)">
     <label for="CommentaryCheckbox" class="CheckboxLabel">Only entries with commentary</label>
     <br>
-    <button type="button" id="GraphButton" OnClick="ShowGraphButton()">Show Graph</button>
+    <button type="button" id="GraphButton" OnClick="ShowGraphButton()">Show Statistics</button>
   </div>
   <div id="header">
     <h1>Everything I have done for DDO</h1>
     <p>Everything listed here is a feature or fix that I have either built or majorly designed. I have omitted release notes for items I did not contribute meaningfully towards. <br><span class="patch">List items in blue were added in a subsequent patch.</span></p>
   </div>
   <div id="GraphSection" style="display:none;">
-  <hr>
-  <div id="Graph"></div>
+    <hr>
+    <div id="Graph"></div>
+    <h2>Statistics and Analysis</h2>
+    <p id="StatsHeader">I have contributed to $VALUE1$ total changes across $VALUE2$ updates. Of those...</p>
+    <ul>
+      <li id="StatsHeadline">$VALUE1$ were headline features</li>
+      <li id="StatsBalance">$VALUE1$ were small features or balance changes</li>
+      <li id="StatsBugs">$VALUE1$ were bug fixes</li>
+      <li id="StatsEngineering">$VALUE1$ were engineering changes</li>
+    </ul>
+    <p id="StatsTextHeadline">The most headline features I've designed in an update was $VALUE1$ during $UPDATENAME$</p>
+    <p id="StatsTextBalance">The most balance changes and small features I've designed in an update was $VALUE1$ during $UPDATENAME$</p>
+    <p id="StatsTextBugs">The most bugs I've fixed in an update was $VALUE1$ during $UPDATENAME$</p>
+    <p id="StatsTextEngineering">The most engineering changes I've made in an update was $VALUE1$ during $UPDATENAME$</p>
+    <p id="StatsTextTotal">I've fixed an average of $VALUE1$ of bugs per update cycle!</p>
   </div>
   <hr>
   <div id="updates">
