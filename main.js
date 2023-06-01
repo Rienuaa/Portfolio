@@ -70,6 +70,19 @@ function ShowStats()
   document.getElementById("StatsTextEngineering").innerHTML = document.getElementById("StatsTextEngineering").innerHTML.replace("$VALUE1$", GetHighestValue("engineering")).replace("$UPDATENAME$", UpdateNameWithHighestValue("engineering"));
   
   document.getElementById("StatsTextTotal").innerHTML = document.getElementById("StatsTextTotal").innerHTML.replace("$VALUE1$", average);
+  
+  document.getElementById("StatsLink").setAttribute( 'href', TruncateUpdateName( UpdateNameWithHighestValue("features") ) );
+  document.getElementById("BalanceLink").setAttribute( 'href', TruncateUpdateName( UpdateNameWithHighestValue("balance") ) );
+  document.getElementById("BugsLink").setAttribute( 'href', TruncateUpdateName( UpdateNameWithHighestValue("bugfixes") ) );
+  document.getElementById("EngineeringLink").setAttribute( 'href', TruncateUpdateName( UpdateNameWithHighestValue("engineering") ) );
+}
+
+function TruncateUpdateName( UpdateName )
+{
+  var split = UpdateName.split(" ");
+  var string = split[1];
+  string = "#U" + string;
+  return string;  
 }
 
 function GetHighestValue( ClassName )
