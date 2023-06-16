@@ -77,6 +77,22 @@ function ShowStats()
   document.getElementById("EngineeringLink").setAttribute( 'href', TruncateUpdateName( UpdateNameWithHighestValue("engineering") ) );
 }
 
+function ShowAdvancedStats()
+{
+  let updateNames = GetLabels();
+  
+  let index = GetIndexOfHighestInDataSet( GetAggregateData() );
+  
+  let highest = GetHighestOfDataSet( GetAggregateData() );
+  
+  let amount = GetTotalDataPatchShifted()[index];
+  
+  let days = Math.round(GetDayDifferences()[index]);
+  
+  document.getElementById("StatsTextExtra").innerHTML = document.getElementById("StatsTextExtra").innerHTML.replace("$VALUE1$", highest).replace("$VALUE2$", amount).replace("$VALUE3$", days).replace("$UPDATENAME$", updateNames[index]);
+  document.getElementById("AggregateLink").setAttribute( 'href', TruncateUpdateName( updateNames[index] ) );
+}
+
 function TruncateUpdateName( UpdateName )
 {
   var split = UpdateName.split(" ");
@@ -222,6 +238,62 @@ function GetLabels()
   return labels.reverse();
 }
 
+function GetDateLabels()
+{
+  var headers = document.getElementsByClassName("header");
+  
+  let DateLabels = [];
+  
+  for ( var i = 0; i < headers.length; i++ )
+  {
+    var children = headers[i].children;
+    
+    for ( var j = 0; j < children.length; j++ )
+    {
+      var child = children[j];
+
+      if ( child.nodeName == "P" )
+      {
+        DateLabels.push( child.innerHTML );
+      }
+    }
+  }
+  
+  return DateLabels.reverse();
+}
+  
+function GetDates()
+{
+  let DateLabels = GetDateLabels();
+  let Dates = [];
+  
+  for ( var i = 0; i < DateLabels.length; i++ )
+  {
+    // this splits the date like so: April / 26th / 2023
+    var split = DateLabels[i].split(" ");
+    
+    // day in just numbers
+    var day = split[1].replace(/[^0-9]/g,"");
+    // add leading 0
+    if ( day.length == 1 )
+    {
+      day = "0" + day;
+    }
+    
+    // first three characters
+    var month = split[0].slice(0,3);
+    
+    // the year
+    var year = split[2];
+    
+    var date = Date.parse( day + " " + month + " " + year + " 00:12:00 GMT" );
+    
+    Dates.push( date );
+  }
+  
+  return Dates.reverse();
+}
+
 function GetFeatureDataByClassName( ClassName )
 {
   var features = document.getElementsByClassName( ClassName );
@@ -249,6 +321,185 @@ function GetFeatureDataByClassName( ClassName )
   }
 
   return featureData.reverse();
+}
+
+function GetPatchDataByClassName( ClassName )
+{
+  var features = document.getElementsByClassName( ClassName );
+  
+  let featureData = [];
+  
+  for ( var i = 0; i < features.length; i++ )
+  {
+    var children = features[i].children;
+    
+    if (children.length == 0)
+    {
+      featureData.push(0);
+    }
+    else
+    {
+      var count = 0;
+      
+      for ( var j = 0; j < children.length; j++ )
+      {
+        var child = children[j];
+
+        if ( child.nodeName == "UL" )
+        {
+          var subchildren = child.children;
+          
+          for ( var k = 0; k < subchildren.length; k++ )
+          {
+            var subchild = subchildren[k];
+            
+            if ( subchild.className == "patch" )
+            {
+              count++;
+            }
+          }
+        }
+      }
+      
+      featureData.push( count );
+    }
+  }
+
+  return featureData.reverse();
+}
+
+function GetTotalDataPatchShifted()
+{
+  // first lets get all of the lists
+  var HeadlineData = GetFeatureDataByClassName("features");
+  var SmallFeatureData = GetFeatureDataByClassName("balance");
+  var BugfixData = GetFeatureDataByClassName("bugfixes");
+  var EngineeringData = GetFeatureDataByClassName("engineering");
+  
+  var HeadlinePatch = GetPatchDataByClassName("features");
+  var SmallFeaturePatch = GetPatchDataByClassName("balance");
+  var BugfixPatch = GetPatchDataByClassName("bugfixes");
+  var EngineeringPatch = GetPatchDataByClassName("engineering");
+  
+  var TotalData = [];
+  var prevPatch = 0;
+  
+  for ( var i = 0; i < HeadlineData.length; i++ )
+  {
+    var total = HeadlineData[i] + SmallFeatureData[i] + BugfixData[i] + EngineeringData[i];
+    
+    // now, for each entry, we subtract the patch value of the current iteration, and add the patch value of the previous
+    // the first entry here is going to be 0, though!
+    var thispatch = HeadlinePatch[i] + SmallFeaturePatch[i] + BugfixPatch[i] + EngineeringPatch[i];
+    
+    if ( i > 0 )
+    {
+      prevPatch = HeadlinePatch[i - 1] + SmallFeaturePatch[i - 1] + BugfixPatch[i - 1] + EngineeringPatch[i - 1];
+    }
+
+    total = total - thispatch + prevPatch;
+    
+    TotalData.push(total);
+  }
+  
+  
+  
+  return TotalData;
+}
+
+function GetHighestOfDataSet( DataSet )
+{
+  let highest = 0;
+  
+  for ( var i = 0; i < DataSet.length; i++ )
+  {
+    if ( DataSet[i] > highest )
+    {
+      highest = DataSet[i];
+    }
+  }
+
+  return highest;
+}
+
+function GetIndexOfHighestInDataSet( DataSet )
+{
+  let highest = 0;
+  let index = 0;
+  
+  for ( var i = 0; i < DataSet.length; i++ )
+  {
+    if ( DataSet[i] > highest )
+    {
+      highest = DataSet[i];
+      index = i;
+    }
+  }
+  
+  return index;
+}
+
+function GetAggregateData()
+{
+  // this is a list of total changes, with each entry divided by the total days since the previous entry
+  // the first entry is instead divided by a flat 3 months
+  // for example, update 150 had 50 total changes and was 50 days after the release of the previous update, for an aggregate score of 1
+  
+  var Data = GetTotalDataPatchShifted();
+  var Differences = GetDayDifferences();
+  
+  var TotalData = [];
+
+  for (var i = 0; i < Data.length; i++ )
+  {
+    // this is the total changes divided by the difference in days
+    var data = Data[i] / Differences[i];
+    
+    // now we round by doing some sneaky bad math
+    data = Math.round( data * 100 ) / 100;
+    
+    TotalData.push(data);
+  }
+  
+  return TotalData;
+}
+
+function GetDayDifferences()
+{
+  var days = [];
+  var Dates = GetDates();
+  var firstEntry = 90;
+  
+  for (var i = 0; i < Dates.length; i++ )
+  {
+    // this is the date of the update's release
+    var updateDate = Dates[i];
+    
+    // this is the difference in days between this update and the previous (or the first entry's static amount)
+    var difference = firstEntry;
+    if ( i != 0 )
+    {
+      difference = DaysBetween( Dates[i], Dates[ i - 1 ] );
+    }
+    
+    // remove the weekends = multiply by 5/7
+    difference = ( difference * 5 ) / 7;
+    
+    days.push(difference);
+  }
+  
+  return days;
+}
+
+function DaysBetween( date1, date2 )
+{
+  var day = 24 * 60 * 60 * 1000;
+  
+  var diff = date2 - date1;
+  
+  diff = Math.round( diff / day );
+  
+  return diff;
 }
 
 function SetupGraph()
@@ -332,6 +583,69 @@ function SetupGraph()
       color: '#5289ff'
       }, false);
   }
+  
+  chart.redraw();
+}
+
+function ShowExtraGraphButton(checkboxElement)
+{
+  // hide button
+  document.getElementById("ExtraGraphButton").style.display = "none";
+  // show div
+  document.getElementById("MoreInfo").style.display = "block";
+  
+  ShowAdvancedStats();
+  
+  // this graph shows changes / day sorted by release date
+  var GraphLabels = GetLabels();
+  
+  var GraphData = GetAggregateData();
+  
+  var chart = new Highcharts.Chart('Graph2', {
+    chart: {
+        type: 'area'
+    },
+    title: {
+        text: 'Changes per Day',
+        align: 'left'
+    },
+    legend: {
+        enabled: false
+    },
+    xAxis: {
+      categories: GraphLabels
+    },
+    yAxis: {
+        title: {
+            useHTML: true,
+            text: "Changes"
+        }
+    },
+    tooltip: {
+        shared: true,
+        headerFormat: '<span style="font-size:12px"><b>{point.key}</b></span><br>'
+    },
+    plotOptions: {
+        series: {
+            //
+        },
+        area: {
+            stacking: 'normal',
+            lineColor: '#666666',
+            lineWidth: 1,
+            marker: {
+                lineWidth: 1,
+                lineColor: '#666666'
+            }
+        }
+    }
+  });
+  
+  chart.addSeries({                        
+      name: 'Changes per Day',
+      data: GraphData,
+      color: '#f22760'
+      }, false);
   
   chart.redraw();
 }

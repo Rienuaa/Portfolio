@@ -35,6 +35,7 @@
   <div id="GraphSection" style="display:none;">
     <hr>
     <div id="Graph"></div>
+    
     <h2>Statistics and Analysis</h2>
     <p id="StatsHeader">I have contributed to <span class="value">$VALUE1$</span> total changes across <span class="value">$VALUE2$</span> updates. Of those...</p>
     <ul>
@@ -48,6 +49,15 @@
     <p id="StatsTextBugs">The most bugs I've fixed in an update was <span class="value">$VALUE1$</span> during <a id="BugsLink" class="UpdateLink">$UPDATENAME$</a></p>
     <p id="StatsTextEngineering">The most engineering changes I've made in an update was <span class="value">$VALUE1$</span> during <a id="EngineeringLink" class="UpdateLink">$UPDATENAME$</a></p>
     <p id="StatsTextTotal">I've fixed an average of <span class="value">$VALUE1$</span> of bugs per update cycle!</p>
+    <br>
+    <button type="button" id="ExtraGraphButton" OnClick="ShowExtraGraphButton()">Show More Statistics</button>
+    <div id="MoreInfo" style="display:none;">
+      <hr>
+      <div id="Graph2"></div>
+      <p>This graph shows the aggregate amount of changes made in an update divided by the days since the previous update. For example, if an update had 50 total changes across all categories, and came out 50 days after the previous update, that update's aggregate score would be 1. That being said, that's not the full story - this data also takes into account that some changes were launched post-release, as those were being worked on during the next update's release cycle. So the true amount of changes in a given update is actually the number of launch changes + the total number of patch-released changes of the previous update. This means that in our earlier example, if those 50 changes were actually 20 launch changes and 30 patch changes, but the previous update had 5 patch changes, the update's true aggregate score is 0.5, as 20 + 5 / 50 = 0.5.</p>
+      <p>It should also probably be noted that all of this analysis on the basis of "productivity" is by definition exceptionally flawed because it treats large features that took months of effort and many hands with the same weight as taking two minutes to fix a typo in a decade-old piece of content. It also downplays the tremendous, amazing efforts of my team, without whom I'd never be able to do any of the things that I do. That being said, I like graphs - so here we are!</p>
+      <p id = "StatsTextExtra">The update with the highest aggregate score is <a id="AggregateLink" class="UpdateLink">$UPDATENAME$</a> with a score of <span class="value">$VALUE1$</span>. This is because I made <span class="value">$VALUE2$</span> total changes over the course of <span class="value">$VALUE3$</span> days.</p>
+    </div>
   </div>
   <hr>
   <div id="updates">
