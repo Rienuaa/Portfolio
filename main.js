@@ -323,6 +323,103 @@ function GetFeatureDataByClassName( ClassName )
   return featureData.reverse();
 }
 
+function GetYearLabels()
+{
+  var headers = document.getElementsByClassName( "header" );
+  
+  let years = [];
+  
+  for ( var i = 0; i < headers.length; i++ )
+  {
+    var children = headers[i].children;
+
+    for ( var j = 0; j < children.length; j++ )
+    {
+      var child = children[j];
+
+      if ( child.nodeName == "P" )
+      {
+        // grab the year
+        var year = child.innerHTML.substr(-4);
+        if ( !years.includes( year ) )
+        {
+          years.push( year );
+        }
+      }
+    }
+  }
+  
+  return years.reverse();
+}
+
+function GetYears()
+{
+  var headers = document.getElementsByClassName( "header" );
+  
+  let years = [];
+  
+  for ( var i = 0; i < headers.length; i++ )
+  {
+    var children = headers[i].children;
+
+    for ( var j = 0; j < children.length; j++ )
+    {
+      var child = children[j];
+
+      if ( child.nodeName == "P" )
+      {
+        // grab the year
+        var year = child.innerHTML.substr(-4);
+        years.push( year );
+      }
+    }
+  }
+  
+  return years.reverse();
+}
+
+function GetFeatureDataByClassNameByYear( ClassName )
+{
+  // a list of years for each update
+  var years = GetYears().reverse();
+  
+  // a list of years, no duplicates
+  var labels = GetYearLabels().reverse();
+  
+  var features = document.getElementsByClassName( ClassName );
+  
+  let featureData = [];
+  
+  // add in 0 at each year index
+  for ( var i = 0; i < labels.length; i++ )
+  {
+    featureData.push( 0 );
+  }
+  
+  for ( var i = 0; i < features.length; i++ )
+  {
+    var children = features[i].children;
+    
+    // get the year for this update
+    var year = years[i];
+    
+    // find the index of the year in the label list
+    var index = labels.indexOf( year );
+    
+    for ( var j = 0; j < children.length; j++ )
+    {
+      var child = children[j];
+
+      if ( child.nodeName == "UL" )
+      {
+        featureData[index] = featureData[index] + child.childElementCount;
+      }
+    }
+  }
+
+  return featureData.reverse();
+}
+
 function GetPatchDataByClassName( ClassName )
 {
   var features = document.getElementsByClassName( ClassName );
@@ -517,6 +614,93 @@ function SetupGraph()
     },
     title: {
         text: 'Changes by Update',
+        align: 'left'
+    },
+    xAxis: {
+      categories: GraphLabels
+    },
+    yAxis: {
+        title: {
+            useHTML: true,
+            text: "Changes"
+        }
+    },
+    tooltip: {
+        shared: true,
+        headerFormat: '<span style="font-size:12px"><b>{point.key}</b></span><br>'
+    },
+    plotOptions: {
+        series: {
+            //
+        },
+        area: {
+            stacking: 'normal',
+            lineColor: '#666666',
+            lineWidth: 1,
+            marker: {
+                lineWidth: 1,
+                lineColor: '#666666'
+            }
+        }
+    }
+  });
+  
+  if ( document.getElementById("MainFeaturesCheckbox").checked )
+  {
+    chart.addSeries({                        
+      name: 'Headline Features',
+      data: HeadlineData,
+      color: '#f22760'
+      }, false);
+  }
+  
+  if ( document.getElementById("BalanceCheckbox").checked )
+  {
+    chart.addSeries({                        
+      name: 'Balance and Small Features',
+      data: SmallFeatureData,
+      color: '#f7ae2f'
+      }, false);
+  }
+  
+  if ( document.getElementById("BugfixCheckbox").checked )
+  {
+    chart.addSeries({                        
+      name: 'Bug Fixes',
+      data: BugfixData,
+      color: '#3ef7aa'
+      }, false);
+  }
+  
+  if ( document.getElementById("EngineeringCheckbox").checked )
+  {
+    chart.addSeries({                        
+      name: 'Engineering Changes',
+      data: EngineeringData,
+      color: '#5289ff'
+      }, false);
+  }
+  
+  chart.redraw();
+  
+  SetupAdditionalGraph();
+}
+
+function SetupAdditionalGraph()
+{
+  var GraphLabels = GetYearLabels();
+  
+  var HeadlineData = GetFeatureDataByClassNameByYear("features");
+  var SmallFeatureData = GetFeatureDataByClassNameByYear("balance");
+  var BugfixData = GetFeatureDataByClassNameByYear("bugfixes");
+  var EngineeringData = GetFeatureDataByClassNameByYear("engineering");
+  
+  var chart = new Highcharts.Chart('Graph3', {
+    chart: {
+        type: 'area'
+    },
+    title: {
+        text: 'Changes by Year',
         align: 'left'
     },
     xAxis: {
