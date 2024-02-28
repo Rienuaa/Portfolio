@@ -71,12 +71,210 @@
   </div>
   <hr>
   <div id="updates">
-  <div id="U65">
+    <div id="U66">
+      <div class="header">
+        <h2>Update 66: Rise of the Dragon Lord</h2>
+        <p>Feb 28th, 2024</p>
+      </div>
+      <div class="features">
+        <h3>Main Features:</h3>
+        <ul>
+          <li>Epic Destiny Refresh</li>
+          <li>Active Tumbling Overhaul
+            <ul>
+              <li>Tumbling is now limited by charges. If you don't have at least one Tumble charge, you cannot tumble. By default, you have 2 maximum Tumble charges, and one Tumble charge returns every 8 seconds.</li>
+              <li>Certain feats and abilities now boost your maximum Tumble charges and quicken their rate of return:
+                <ul>
+                  <li>Thief-Acrobat's 3rd core, Tumbler, now grants +1 maximum Tumble charge.</li>
+                  <li>The Mobility feat now grants +1 maximum Tumble charge.</li>
+                </ul>
+              </li>
+              <li>You may view your Tumble charges by holding your Block key, default left shift. Each green pip displayed represents one Tumble charge.</li>
+              <li>Tumble now grants you defensive benefits during part of the tumble animation. These bonuses only apply if you are actually tumbling - the shuffle half-step will not trigger these bonuses.
+                <ul>
+                  <li>+95% uncapped Dodge for 1 second in light or no armor, +75% uncapped Dodge for 1 second in medium armor, +50% uncapped Dodge for 1 second in heavy armor.</li>
+                  <li>A bonus to Reflex saving throws equal to your Tumble skill for 1 second.</li>
+                  <li>Note that these bonuses apply to you from the moment you begin your Tumble, regardless of how long the animation takes to complete.</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>Tooltip Update
+            <ul>
+              <li>All action lines other than description are now in a bulleted list.</li>
+              <li>There is now an empty space between the automatically generated stuff and its description.</li>
+              <li>Duplicate information (such as the duplicate cooldown line when hovering over a spellBOOK entry or Spell information in enhancement tree tooltips) has been removed.</li>
+              <li>Save information is now color coded (between fort, will, and reflex).</li>
+              <li>Spell Resistance information is now color coded and presented only if the Spell Resistance check is active (aka you will see Spell Resistance! only if the ability needs it, and not Spell Resistance NO on everything that doesn't)</li>
+              <li>If you have material components eschewed via a character ability, the spell now reports this on a per-slot-basis (because you can assign eschew on a per-slot basis) instead of just telling you that you don't have the materials.</li>
+              <li>We no longer display a Spell Point cost of 0 on abilities with no SP costs.</li>
+              <li>Hit Point costs of abilities are now reported in RED, and Ki costs are now reported in YELLOW.</li>
+              <li>Abilities that are self-targeted toggles now say "Toggle Ability" instead of just "Target: Self" which, while technically true, isn't the most helpful information.</li>
+              <li>Fixed bug where druid abilities reported wrong DCs.</li>
+              <li>Fixed bug where certain projectile spells had the wrong DCs.</li>
+              <li>Antirequisites now display in Enhancement Trees and Destiny Trees.</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="balance">
+        <h3>Balance and Small Features:</h3>
+        <ul>
+          <li>Draconic Incarnation's Dragon Breath is now a 1-rank, 2AP Ability.</li>
+          <li>Dragon Breath damage adjusted to 1d6+5 damage per caster level.</li>
+          <li>Energy Burst now increases Dragon Breath's damage to 1d6+10 damage per caster level.</li>
+          <li>Gaping Maw now increases Dragon Breath's damage to 1d6+10 damage per caster level.</li>
+          <li>Dragon Breath cooldown adjusted to 12 seconds.</li>
+          <li>Dragon Breath and Attune the Arcane have swapped places in the tree.</li>
+          <li>Dragon Breath now has its intended max caster level of 20 to match the other Epic Strikes. All Epic Strikes should now have a Maximum Caster Level of 20.</li>
+          <li>Fatesinger's Core abilities now grant +15 HP</li>
+          <li>Renamed "The Rhythm to Reign" to "Pianissimo"</li>
+          <li>Renamed "Reign" to "The Rhythm to Reign"</li>
+          <li>DC for Discord abilities (melee/ranged) is now 20 + highest mod + stun DC</li>
+          <li>DC for Greatest Shout + Discord (spell) is now 20 + highest of int/wis/cha + evocation DC</li>
+          <li>Strike a Chord sonic damage is now 1d6+3 per Caster Level.</li>
+          <li>Little bit of Music and Master the Acoustics have swapped places in the tree</li>
+          <li>Magus of the Eclipse's Moon Lance and Gloom Spear now deal 1d8+8 damage per caster level</li>
+          <li>Chill Aura is now a multiselector with: "Flash of the Eclipse: While in your Magus of the Eclipse Destiny Mantle, your Cold and Negative spells have a chance to blast your target for an additional 1d6+6 damage per character level of the same type as the spell used, as well as applying one stack of Shattermantle. Each element can only strike once every 5 seconds, tracked separately."</li>
+          <li>Share the Light now requires Chill Aura as a prerequisite.</li>
+          <li>Null Magic Strike is now a multiselecter with Share the Light and moves down in the tree to Tier 3.</li>
+          <li>New Tier 4 where Null Magic Strike was: "Lunar Studies: While in your Magus of the Eclipse Destiny Mantle, you gain Spell Resistance, Magic Resistance Rating, and Magic Resistance Rating Cap equal to 3 times the number of Metamagic feats you've acquired."</li>
+          <li>New Tier 1 where Grand Summoner was: "Moontouched: +2/4/6 Magic Resistance Rating. Rank 3: +5 Negative, Cold, Force, and Universal Spell Power".</li>
+          <li>Lunar Imbuement is now: "Casting Moon Lance or Gloom Spear grants you +5 Negative, Cold, Force, and Universal Spell Power for 12 seconds, and these spells apply 5 stacks of Vulnerability to the enemy struck."</li>
+          <li>All Core abilities now grant +1 Spell Penetration each.</li>
+          <li>Core 4 now grants +3 Spell Penetration (which is still total of 7 across all 4 cores + 3 from core 4, but is now spread out a bit and easier to access.)</li>
+          <li>Lunar Power is now: "+10 Negative, Cold, Force, and Universal spell power. Your Moon Lance and Gloom Spear spells now deal 1d12+16 damage to enemies with 0 or less Spell Resistance."</li>
+          <li>Action Point costs of several abilities have been adjusted to try to get this tree closer to the goal of 60-ish AP for all abilities like other Destiny Trees. It's still below other trees, but now the margin is less severe.</li>
+          <li>Grand Summoner moves to multiselect with Tier 1 Impregnable Mind.</li>
+          <li>Improved Arcane Pulse is now named Unholy Pulse and grants +15 negative amplification in addition to its existing effects.</li>
+          <li>The cooldowns of Machrotechnic's Hammer Time spells and damaging Epic Strikes have swapped places - leaving the Sonic and Electric Epic Strikes at 10 seconds and the Hammer spells at 15 seconds.</li>
+          <li>Machrotechnic's Rune Arm Use now allows you to use highest of INT/WIS/CHA for Rune Arm DCs</li>
+          <li>Machrotechnic's Tier 4 strike upgrade boosts the Sonic and Electric damage of the strike to 1d6+8.</li>
+          <li>Divine Crusader's Core Abilities now grant +25 Hit Points.</li>
+          <li>Holy Fireball damage adjusted to 1d6+4 Fire and 1d6+4 Light damage per caster level. Cooldown Adjusted to 10 seconds.</li>
+          <li>Divine Protection is now: +1/2/3 Armor Class and Physical and Magical Resistance Rating. Rank 3: +5 Fire, Light, Positive, Alignment and Universal Spell Power.</li>
+          <li>Exalted Angel's Metamagic Attunement II in tier 5 no longer grants spell power (was moved to tier 2 Divine Protection),</li>
+          <li>Sun Pillar and Flame Pillar now deal 1d8+8 damage per caster level.</li>
+          <li>New Multiselector with Angelic Form: Wrathful Form: "Casting a Fire, Light, Alignment, or Positive Spell causes you to be surrounded by fire and light for 5 seconds, damaging all enemies nearby every 2.5 seconds for 1d6 Fire and 1d6 Light damage per caster level. This damage will not strike dazed targets unless they are also stunned. Subsequent spell casts extend the duration by an additional 5 seconds, up to a maximum of 15. This ability ends when you leave combat. Your Positive Healing spells heal 1d6 extra Positive Healing per caster level. This has a cooldown of 5 seconds before it can trigger again."</li>
+          <li>Angelic Form is now: "Your offensive Fire spells deal 1d6+6 bonus Fire damage per caster level, and your offensive Light spells now deal 1d6+6 bonus Light damage per caster level. Your Positive Healing spells heal 1d6 extra Positive Healing per caster level. These damage effects each have a unique cooldown of 5 seconds." </li>
+          <li>Angelic Body is now: "While within your Exalted Angel Destiny Mantle, you gain +5 Armor Class and Physical and Magical Resistance Rating, and are immune to Natural Poisons and Natural Diseases."</li>
+          <li>Angelic Soul is now: "Your Wrathful Form and Angelic Form now apply Consecrated Cinders to enemies and Consecrated Sparks to allies. Consecrated Cinders: -5 Armor Class and Physical and Magical Resistance Rating. Consecrated Sparks: +5 Armor Class and Physical and Magical Resistance Rating"</li>
+          <li>Holy Presence and Angelic Soul have swapped places.</li>
+          <li>Holy Presence is now: "While in your Exalted Angel Destiny Mantle, you gain 15% damage absorption to all Elemental (Fire, Cold, Electric, Acid, Poison, Sonic) and Alignment (Good, Evil, Lawful, Chaotic) damage."</li>
+          <li>Blessed Water's Rank 3 now also grants +15 Magical Resistance Rating if you have the Font of Life feat.</li>
+          <li>Shadows Upon You now also reduces Armor Class and Physical and Magical Resistance Rating by 1 per stack.</li>
+          <li>Ascendance is now: Epic Moment. For the next 20 seconds, your single-target Cure Wounds spells you cast on any target now instead apply to all allies. These spells cannot crit. For the duration of this ability, Raise Dead and Resurrection also raise your target to full HP like True Resurrection does. Finally, your Turn Undead can now turn any type of creature regardless of genus, can destroy things it turns, and you gain +3 to each Turn Undead stat per Religious Lore feat.</li>
+          <li>Bane of Undeath now allows you to use your character level instead of your class level for Turn Undead.</li>
+          <li>Delayed Judgement DC scaling is now enchantment</li>
+          <li>Grandmaster of Flowers's Core Abilities now grant +25 Hit Points.</li>
+          <li>Drifting Lotus Epic strike now deals +10/20/30% damage.</li>
+          <li>Orchid Blossom Epic Strike now deals 1d6+10 damage per caster level.</li>
+          <li>Lower cooldowns of inner focus and wholeness of spirit to be 120/90/60 seconds</li>
+          <li>Legendary Dreadnought's Core Abilities now grant +25 Hit Points.</li>
+          <li>Shadowdancer's Core abilities now grant +15 HP and +25 SP.</li>
+          <li>Shadowdancer's becomes a beam like Lightning Bolt instead of being single target. Cooldown adjusted to 8 seconds.</li>
+          <li>Shadow Mastery Epic Moment's activation time has been significantly reduced.</li>
+          <li>Weird is now a SLA instead of a Spell Book Spell, with the same cost and cooldown as it had before.</li>
+          <li>Consumed by Shadows debuff attack from t5 now also applies Shadow Loss and 3 stacks of Darkness to affected enemies.</li>
+          <li>Shadowdancer's Mantle Tier 5 upgrade's shadowy floating visual effects and feather fall moves to the T2 Mantle upgrade, Depths of Darkness.</li>
+          <li>New Tier 5 to replace Greater Shadowform: Unholy Feeding: On kill, you gain 5 temp HP per sneak attack dice. You also gain +10 Force and Universal Spell Power and are immune to Pressure Plates and Bear Traps.</li>
+          <li>Fury of the Wild's Core abilities now grant +25 Hit Points.</li>
+          <li>Carrion Swarm gains a saving throw interval to remove the dot.</li>
+          <li>Spring to Summer AOE damage adjusted to 1d6+6 per Caster Level.</li>
+          <li>Storm Catcher single target damage adjusted to 1d8+8 per Caster Level. DOT damage adjusted to 1d6 every 2 seconds per Caster Level.</li>
+          <li>Shiradi Champion's Core abilities now grant +15 HP, +25 SP.</li>
+          <li>Feywild Attunement's Base Attack Bonus now works regardless of weapon type.</li>
+          <li>Fey Lights now deals 1d6+3 Force damage per caster level, scaling with Force Spell Power. Selecting an element with your mantle's Stay ability will change this damage to match that type.</li>
+          <li>Shiradi Champion's Core 4 is now: "You gain +1 Saves vs Spells, with an additional +1 for every Favored Enemy feat you've acquired. +1 Maximum Manyshot charge."</li>
+          <li>Fey Form mantle upgrade is now Cruelty of the Hunt: You deal +10% damage against the helpless.</li>
+          <li>Track now works on harmful spell casts and reduces saves by 1/stack.</li>
+          <li>New Enemy of my Own multiselector: Fey Form: You gain Dr10/Cold Iron, +5 Force and Universal Spell Power, and your main hand weapon becomes an Implement.</li>
+          <li>New Whirling Wrists multiselector: Flickering Fingers: +1/2/3 Imbue Dice.</li>
+          <li>New Phase Double multiselector: Fey Presence: +2/4/6% Incorporeality.</li>
+          <li>Hunts End is now a ranged attack that deals +250% damage and automatically crits.</li>
+          <li>Greater Beguiling Charm has been cut, and Beguiling Charm now has its upgrade by default.</li>
+          <li>Hunt's End and Pin have switched places, with Pin becomes the new epic strike. Pin gets upgraded now in Hunt's End's place, and Hunts End is now multiselected with the Beguiling Charm ability and is no longer an Epic Strike.</li>
+          <li>Beguiling Charm and the space where Greater Beguiling Charm was move up a tier, to Tier 3 and 4, and Enemy Of My Own goes down to Tier 2.</li>
+          <li>New Tier 4 where Greater Beguile would have been: Countenance of Queens: -30% Threat from all sources.</li>
+          <li>The second Strike upgrade for Pin is "Overwhelming Force: Pin now applies 10 stacks of Track to enemies struck." The first strike upgrade in tier 3 is Otto's Whistler, which moved in from its previous location in tier 4.</li>
+          <li>Unyielding Sentinel's Throw the Boom is a separate ability, sharing a cooldown with Knight's Challenge.</li>
+          <li>Sacred Fist 12 is now a prerequisite for the feats Epic Martial Arts and Vorpal Strikes</li>
+        </ul>
+      </div>
+      <div class="bugfixes">
+        <h3>Bugfixes:</h3>
+        <ul>
+          <li>The quest Dread Sea Scrolls is now properly shareable.</li>
+          <li>Selecting an Alignment during character creation no longer allows you to click through the window to the Create button accidentally.</li>
+          <li>Sacred Fist now shows up as a prerequisite for Unarmed Strike.</li>
+          <li>Annabelle d'Jorasco no longer robs people.</li>
+          <li>Augments that apply an Implement bonus to their equipped weapons now correctly make the weapon an implement instead of trying to make you an implement.</li>
+          <li>Sacred Fist's Iron Skin's 2nd Tier now functions as intended.</li>
+          <li>The Spellsinger SLAs Cure Light Wounds and Cure Light Wounds, Mass now target undead foes correctly.</li>
+          <li>Incapacitation Range found on items has had its magnitude adjusted to match its intended value.</li>
+          <li>You now properly gain Force Spell Power and Force Spell Caster Levels within Season's Herald.</li>
+          <li>The tooltips for the Seasonal Attunements within Season's Herald have been adjusted for clarity.</li>
+          <li>You may now use the Enlarge Metamagic feat on Dark Apostate's Bane and Bestow Curse spells.</li>
+          <li>Ranged Special Attacks (such as Poisoned Shot from Vile Chemist) now correctly work while moving and firing a dual crossbow.</li>
+          <li>Death Salve now correctly turns your allies Undead.</li>
+          <li>Hirelings can now turn into Undead or Plants properly if they desire to do so.</li>
+          <li>Angel of Vengeance's Just Reward now works regardless of what favored weapon you have.</li>
+          <li>Shuriken Expertise and Advanced Ninja Training now have proper tooltips.</li>
+          <li>Stormsinger's Lightning Strike now correctly upgrades its damage.</li>
+          <li>Fixed the Gianthold augment vendors tooltips to correctly indicate what augments they sell.</li>
+          <li>Draconic Incarnation's 4th core no longer improperly consumes your spell components.</li>
+          <li>Sacred Fist's Divine Striker now functions again.</li>
+          <li>Fixed the tooltips of the Armor and Shield Proficiency feats and added more clarifying text to them.</li>
+          <li>You can now cast Protection Domain's Radiant Forcefield on your allies.</li>
+          <li>Plant Growth's tooltip no longer eats Animal Growth's tooltip.</li>
+          <li>The Marilith Chain now has its proper set bonus.</li>
+          <li>Fighter's Against All Odds now functions with its intended timing</li>
+          <li>Schism Shard weapons no longer lose W score when they are upgraded</li>
+          <li>All SLAs should now have much more accurate directional targeting.</li>
+          <li>The Tactical Training Room amenity now correctly boosts Sunder DCs</li>
+          <li>Removed strange and mysterious "improved sunder DCs" bonus that didn't do anything and was confusing from the Sunder Dinosaur Bone augment</li>
+          <li>Greater Marksmanship now boosts your ranged damage and attack bonus by the correct amount.</li>
+          <li>Forge Wisp Wraiths can now be properly affected by Turn Undead.</li>
+          <li>Divine Disciple's Shield of Dawn now scales correctly with Light Spell Power.</li>
+          <li>Attacks that added bonus damage now correctly increase that damage on a successful Doublestrike or Doubleshot.</li>
+          <li>Deep Gnome's Phantasmal Killer SLA now correctly uses Fear DC bonuses.</li>
+          <li>Several Trap Box locations have been moved or rotated to correctly line up with the walls.</li>
+          <li>Draconic Incarnation's Epic Moment no longer makes you immune to negative damage if you are Undead.</li>
+          <li>Spread Your Wings now properly puts all other jaunt abilities on cooldown.</li>
+          <li>Inevitable is now on its own damage channel and should therefore no longer conflict with other damage over time abilities.</li>
+          <li>Draconic Breath's Energy Vortex now does damage even if the player had themselves or an ally targeted when the skill was triggered.</li>
+          <li>Divine Crusader's Core 4 damage now correctly scales with Melee/Ranged Power.</li>
+          <li>Exalted Angel's Metamagic Attunement II now has proper feat prerequisites</li>
+          <li>Chain Cure projectile set to Ludicrous Speed and added homing so it hits your allies more often.</li>
+          <li>Fixed ranged power scaling on Orchid Blossom</li>
+          <li>Fixed tainted creature boost on Orchid Blossom</li>
+          <li>Primal Avatar's Carrion Swarm DOT damage bug fixed to actually be 1d6+1 per 2 character levels.</li>
+          <li>Primal Avatar's Core 3 now adjusts Protection from Elements that you cast and not versions of the spell that affect you.</li>
+          <li>Carrion Swarm has had a visual bug fixed so you have a unique channel per originator.</li>
+          <li>Fixed many small text errors and typos.</li>
+        </ul>
+      </div>
+      <div class="engineering">
+        <h3>Engineering:</h3>
+        <ul>
+          <li>Directional Arrows for Hirelings on the map and minimap are now their proper color.</li>
+          <li>The LFM UI is now the default page of the Social Panel. It also now triggers a load for all player data upon opening, which prevents broken LFMs from appearing.</li>
+          <li>There is a new button in the Guild window to send a tell to another member of your guild.</li>
+          <li>You may now search the Adventure Compendium for Epic Level.</li>
+          <li>Melee Attack Bonus, Melee Damage Bonus, Ranged Attack Bonus, and Ranged Damage Bonus now are tracked in the Details(+) Tab in your character sheet.</li>
+        </ul>
+      </div>
+    </div>
+    
+    <hr>
+    
+    <div id="U65">
       <div class="header">
         <h2>Update 65: Paws and Peril</h2>
         <p>Dec 6th, 2023</p>
       </div>
       <div class="features">
+        <h3>Main Features:</h3>
         <ul>
           <li class="patch">New Set Augments are available at the Cauldron of Cadence in the Hut from Beyond!</li>
         </ul>
