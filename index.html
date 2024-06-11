@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Q's Contributions</title>
+  <title>Quentin's DDO Contributions</title>
   <link rel="shortcut icon" type="image/bmp" href="favicon.bmp"/>
   <link rel="stylesheet" href="style/material-elements.css">
   <link rel="stylesheet" href="main.css">
@@ -11,8 +11,8 @@
   <script src="https://code.highcharts.com/modules/accessibility.js"></script>
   <meta property="og:url" content="https://rienuaa.github.io/Portfolio/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Quentin's Contributions">
-  <meta property="og:site_name" content="Quentin's Contributions">
+  <meta property="og:title" content="Quentin's DDO Contributions">
+  <meta property="og:site_name" content="Quentin's DDO Contributions">
   <meta property="og:description" content="An organized list of my contributions to DDO!">
   <meta property="og:image" content="https://rienuaa.github.io/Portfolio/favicon.bmp">
 </head>
@@ -37,8 +37,8 @@
     <button type="button" id="GraphButton" OnClick="ShowGraphButton()">Show Statistics</button>
   </div>
   <div id="header">
-    <h1>Everything I have done for DDO</h1>
-    <p>Everything listed here is a feature or fix for which I was responsible - either via design or via implementation. If you'd like to see some analysis of my body of work, I've provided some statistics under the "Show Stats" button in the control panel. <br><span class="patch">List items in blue were added in a subsequent patch.</span></p>
+    <h1>My Contributions to Dungeons and Dragons: Online</h1>
+    <p>I worked on DDO from 2016-2024. Everything listed here is a patch note for which I was directly responsible. If you'd like to see some analysis of my body of work, I've provided some statistics under the "Show Stats" button in the control panel. <br><span class="patch">List items in blue were added in a subsequent patch.</span></p>
   </div>
   <div id="GraphSection" style="display:none;">
     <hr>
@@ -46,19 +46,18 @@
     <div id="Graph3"></div>
     
     <h2>Statistics and Analysis</h2>
-    <p id="StatsHeader">I have contributed to <span class="value">$VALUE1$</span> total changes across <span class="value">$VALUE2$</span> updates. Of those...</p>
+    <p id="StatsHeader">I contributed to <span class="value">$VALUE1$</span> total changes across <span class="value">$VALUE2$</span> updates. Of those...</p>
     <ul>
       <li id="StatsHeadline"><span class="value">$VALUE1$</span> were headline features</li>
       <li id="StatsBalance"><span class="value">$VALUE1$</span> were small features or balance changes</li>
       <li id="StatsBugs"><span class="value">$VALUE1$</span> were bug fixes</li>
       <li id="StatsEngineering"><span class="value">$VALUE1$</span> were engineering changes</li>
     </ul>
-    <p id="StatsTextHeadline">The most headline features I've designed in an update was <span class="value">$VALUE1$</span> during <a id="StatsLink" class="UpdateLink">$UPDATENAME$</a></p>
-    <p id="StatsTextBalance">The most balance changes and small features I've designed in an update was <span class="value">$VALUE1$</span> during <a id="BalanceLink" class="UpdateLink">$UPDATENAME$</a></p>
-    <p id="StatsTextBugs">The most bugs I've fixed in an update was <span class="value">$VALUE1$</span> during <a id="BugsLink" class="UpdateLink">$UPDATENAME$</a></p>
-    <p id="StatsTextEngineering">The most engineering changes I've made in an update was <span class="value">$VALUE1$</span> during <a id="EngineeringLink" class="UpdateLink">$UPDATENAME$</a></p>
-    <p id="StatsTextTotal">I've fixed an average of <span class="value">$VALUE1$</span> of bugs per update cycle!</p>
-    <p>Finally, a personal note on feature ownership and release note cadence: by definition, a list like this minimizes the many wonderful contributions of my very talented, very dedicated team members past and present. To that end, I'd like to make it very clear that all of this could not and would not be possible without the unending and tireless support of the current DDO team, and the many countless hands that came before them. I've made this website as a way to hold myself accountable to my own lofty standards, and not as a way of comparing myself to my peers and friends - which is why I am only analyzing my own performance against myself and not the rest of the team. Brass tacks, it takes a lot of work to run a MMO. And I'm not talking about it being a lot of work to add new stuff, I mean to just keep going without doing anything, that takes a huge amount of talent, time, effort, and dedication. So please, as a personal favor to myself and the DDO team, take my words at face value when I say that our teamwork is what makes the, for lack of a better phrase, dream work.</p>
+    <p id="StatsTextHeadline">The most headline features I designed in an update was <span class="value">$VALUE1$</span> during <a id="StatsLink" class="UpdateLink">$UPDATENAME$</a></p>
+    <p id="StatsTextBalance">The most balance changes and small features I designed in an update was <span class="value">$VALUE1$</span> during <a id="BalanceLink" class="UpdateLink">$UPDATENAME$</a></p>
+    <p id="StatsTextBugs">The most bugs I fixed in an update was <span class="value">$VALUE1$</span> during <a id="BugsLink" class="UpdateLink">$UPDATENAME$</a></p>
+    <p id="StatsTextEngineering">The most engineering changes I made in an update was <span class="value">$VALUE1$</span> during <a id="EngineeringLink" class="UpdateLink">$UPDATENAME$</a></p>
+    <p id="StatsTextTotal">I fixed an average of <span class="value">$VALUE1$</span> of bugs per update cycle!</p>
     <br>
     <!--  <button type="button" id="ExtraGraphButton" OnClick="ShowExtraGraphButton()">Show More Statistics</button> -->
     <div id="MoreInfo" style="display:none;">
@@ -73,14 +72,44 @@
   <hr>
   
   <div id="updates">
+	<div id="U68">
+      <div class="header">
+        <h2>Update 68: Myth Drannor</h2>
+        <p>June 12th, 2024</p>
+      </div>
+      <div class="features">
+		<h3>Main Features:</h3>
+        <ul>
+          <li>New Playable Race: Eladrin</li>
+          <li>New Playable Iconic Race: Eladrin Chaosmancer</li>
+		</ul>
+      </div>
+      <div class="balance">
+      </div>
+      <div class="bugfixes">
+		<h3>Bugfixes:</h3>
+		<ul>
+		  <li>Stormsinger Core 18 and 20 should now have the correct maximum caster level.</li>
+		<ul>
+      </div>
+      <div class="engineering">
+      </div>
+    </div>
+    
+    <hr>
+	
     <div id="U67">
       <div class="header">
         <h2>Update 67: Slice of Life</h2>
-        <p>Mar 27th, 2024</p>
+        <p>March 27th, 2024</p>
       </div>
       <div class="features">
       </div>
       <div class="balance">
+		<h3>Balance and Small Features:</h3>
+		<ul>
+		  <li class="patch">Trip and Improved Trip are now a Reflex Saving Throw with a recurring Fortitude Saving Throw to get back up. This is a significant increase in these feat's effective DCs. To compensate, the duration of these effects now match Stunning Blow, which is a reduction in duration. So, enemies will Trip more easily, but stay down for a shorter period of time.</li>
+		</ul>  
       </div>
       <div class="bugfixes">
         <h3>Bugfixes:</h3>
@@ -113,6 +142,9 @@
           <li class="patch">Heroic Zawabi's Revenge now has its intended Raid rune drops</li>
 		  <li class="patch">Fixed a typo in Darling's rat form tooltip</li>
 		  <li class="patch">Icy Prison should now properly freeze targets</li>
+		  <li class="patch">Efficient Metamagic: Embolden II and Efficient Metamagic: Intensify II when appearing on loot now properly reduce the Spell Point cost of Emboldened or Intensified spells.</li>
+		  <li class="patch">An issue has been corrected when filtering by double-digit numbers in the Adventure Compendium.</li>
+		  <li class="patch">The Clearwater Diamond Augment now heals at its proper rate and value of one Hit Point per minute.</li>
         </ul>
       </div>
       <div class="engineering">
@@ -143,7 +175,7 @@
     <div id="U66">
       <div class="header">
         <h2>Update 66: Rise of the Dragon Lord</h2>
-        <p>Feb 28th, 2024</p>
+        <p>February 28th, 2024</p>
       </div>
       <div class="features">
         <h3>Main Features:</h3>
@@ -355,7 +387,7 @@
     <div id="U65">
       <div class="header">
         <h2>Update 65: Paws and Peril</h2>
-        <p>Dec 6th, 2023</p>
+        <p>December 6th, 2023</p>
       </div>
       <div class="features">
         <h3>Main Features:</h3>
@@ -388,7 +420,7 @@
     <div id="U64">
       <div class="header">
         <h2>Update 64: Chronoscope Rewound</h2>
-        <p>Nov 30th, 2023</p>
+        <p>November 30th, 2023</p>
       </div>
       <div class="features">
         <h3>Main Features:</h3>
@@ -469,7 +501,7 @@
     <div id="U63">
       <div class="header">
         <h2>Update 63: Illithid Invasion</h2>
-        <p>Nov 1st, 2023</p>
+        <p>November 1st, 2023</p>
       </div>
       <div class="features">
         <h3>Main Features:</h3>
@@ -3060,6 +3092,47 @@
         <li class="patch">Clerics on the Warpriest Path now consistently receive War Domain.</li>
         <li class="patch">Sun Elf Morninglords on their path now consistently receive Sun Domain.</li>
         <li class="patch">Unyielding Sentinel's Vigor of Battle now gives only the 20 Healing Amplification its text indicates that it should.</li>
+        </ul>
+      </div>
+      <div class="engineering">
+      </div>
+    </div>
+	
+    <hr>
+
+    <div id="U32">
+      <div class="header">
+        <h2>Update 32: Against the Slave Lords</h2>
+        <p>September 13, 2016</p>
+      </div>
+      <div class="features">
+      </div>
+      <div class="balance">
+      </div>
+      <div class="bugfixes">
+        <h3>Bugfixes:</h3>
+        <ul>
+			<li>The Paladin Past Life feat now lists its correct Healing Amplification.</li>
+			<li>The elf enhancement's Fey Energy Tap now states incorporeality, not concealment.</li>
+			<li>Pale Master's SLAs have had their descriptions updated to include things like hit point cost, metamagic usage, and other things.</li>
+			<li>Pale Master's Cloak of Night now clarifies that it will reduce the amount of healing received from Positive Energy, or Negative Energy if you are undead.</li>
+			<li>Sorcerer's Water and Fire Savant no longer asks if you are a warforged twice.</li>
+			<li>Arcane Archer's Elemental Imbues no longer say they only do acid damage.</li>
+			<li>Paladin's Knight of the Chalice positive healing amplification now matches its actual effect.</li>
+			<li>Gnome and Deep Gnome SLAs now properly contain text about what the SLA actually does, instead of just telling you the spell's name.</li>
+			<li>Arcanotechnician's Arcane Mechanism no longer gives 100 times as much Spell Power as it was supposed to.</li>
+			<li>Repair Systems now works on players and the Artificer Iron Defender.</li>
+			<li>Merciful Shot now scales with Ranged Power.</li>
+			<li>Epic Destinies that grant Ranged Power now list the benefit in their Tier 0 tooltips.</li>
+			<li>All Single Weapon Fighting feat tooltips now properly attribute attack speed to a combat style bonus.</li>
+			<li>Stunning Fist now has its DC listed in its tooltip (10 + (Character Level/2) + Wisdom modifier).</li>
+			<li>On-crit Intelligence and Charisma drain effects no longer drain Dexterity instead of their correct stat.</li>
+			<li>On-crit Wisdom and Constitution drain effects no longer drain Strength instead of their correct stat.</li>
+			<li>The exit loading screen in Don't Drink the Water has been fixed.</li>
+			<li>Gnome SLA DCs now state that their DC is Character Level + Intelligence Modifier + Illusion DC bonus.</li>
+			<li>Divine Punishment now has its max caster level specified.</li>
+			<li>Various quests have had their tooltips in the Adventure Compendium fixed.</li>
+			<li>Various quests have been moved from the "Misc." tab in the Quest Journal to their actual quest locations.</li>
         </ul>
       </div>
       <div class="engineering">
