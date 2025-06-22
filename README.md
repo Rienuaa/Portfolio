@@ -1,2 +1,2 @@
 # Portfolio
-Everything I have done for DDO.
+A representation of my game design efforts!
